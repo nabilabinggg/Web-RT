@@ -14,27 +14,35 @@
 </head>
 
 <body>
-
+    <form action="login" method="post"></form>
     <section class="login">
         <!-- Header -->
         <div class="container">
             <div style="display: flex;">
-                <img src="<?php echo base_url('img/homepage.png') ?>" width="50%" height="100%" style="position: absolute; left: 0;">
-                <div style="display: flex; flex-direction:column; padding: 50px; width: 50%; position: absolute; right:0; justify-content:space-between;">
+                <img src="<?php echo base_url('img/homepage.png') ?>" width="50%" height="100%"
+                    style="position: absolute; left: 0;">
+                <div
+                    style="display: flex; flex-direction:column; padding: 50px; width: 50%; position: absolute; right:0; justify-content:space-between;">
                     <div>
-                        <h1 style="text-align: center; font-size: 40px; font-family:'Inika'; font-weight: 400;">Nama Web</h1>
+                        <h1 style="text-align: center; font-size: 40px; font-family:'Inika'; font-weight: 400;">Nama Web
+                        </h1>
                     </div>
                     <form style="display: flex; flex-direction:column; margin-top: 20%">
                         <div style="margin-bottom: 40px; height: 81px;">
                             <i class="far fa-user-circle" style="font-size: 50px; margin-right:20px;"></i>
-                            <input style="border: 3px solid #020000; border-radius: 30px; padding: 20px; font-size: large; width:90%; float:right;" placeholder="Username">
+                            <input
+                                style="border: 3px solid #020000; border-radius: 30px; padding: 20px; font-size: large; width:90%; float:right;"
+                                name="username" placeholder="Username">
                         </div>
                         <div style="margin-bottom: 30px; height: 81px;">
                             <i class="fas fa-lock" style="font-size: 50px; margin-right:20px;"></i>
-                            <input style="border: 3px solid #020000; border-radius: 30px; padding: 20px; font-size: large; width:90%; float:right;" placeholder="Password">
+                            <input
+                                style="border: 3px solid #020000; border-radius: 30px; padding: 20px; font-size: large; width:90%; float:right;"
+                                name="password" placeholder="password">
                         </div>
                         <a style="margin:0 0 30px auto; font-size:20px;">Forgot Password?</a>
-                        <button style="height: 64px; width:auto; background: #84D9BB; border: 3px solid #000000; border-radius: 20px;">Login</button>
+                        <button
+                            style="height: 64px; width:auto; background: #84D9BB; border: 3px solid #000000; border-radius: 20px; <?php echo ("pages/homepage.php") ?>">Login</button>
                     </form>
                 </div>
             </div>
