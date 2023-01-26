@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index()
+    public function index_()
     {
 <<<<<<<<< Temporary merge branch 1
         $data = [
