@@ -259,7 +259,11 @@
 
         <div class="heroe">
 
+<<<<<<<<< Temporary merge branch 1
+            <h1>Welcome to CodeIgniter <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
+=========
         <h1>Welcome to Test <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
+>>>>>>>>> Temporary merge branch 2
 
             <h2>The small framework with powerful features</h2>
 
