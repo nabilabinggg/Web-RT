@@ -19,8 +19,12 @@ class auth extends BaseController
         return view('Pages/homepage');
     }
 
-    public function logoout()
+    public function logout()
     {
-        return redirect()->to('/');
+        delete_cookie("cookie_username");
+        delete_cookie("cookie_password");
+        session()->destroy();
+        return redirect()->to('/login');
     }
+
 }
