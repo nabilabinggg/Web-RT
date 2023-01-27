@@ -50,7 +50,8 @@
                         </div>
                         <a style="margin:0 0 30px auto; font-size:20px;">Forgot Password?</a>
                         <button
-                            style="height: 64px; width:auto; background: #84D9BB; border: 3px solid #000000; border-radius: 20px; <?php echo ("admin/index") ?>">Login</button>
+                            style="height: 64px; width:auto; background: #84D9BB; border: 3px solid #000000; border-radius: 20px;"
+                            type="submit">Login</button>
 
                 </div>
                 </form>

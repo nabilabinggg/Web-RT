@@ -20,7 +20,7 @@ class auth extends BaseController
 
         $user = $this->auth_model->where(['username' => $username])->first();
         if ($user) {
-            if ($password == $user['password']) {
+            if (password_verify($password, $user['password']) && $user['username']  == $username) {
                 $ses_user = [
                     'username' => $user['username'],
                     'role' => $user['role_id']
@@ -72,6 +72,26 @@ class auth extends BaseController
         return redirect()->to('/index');
     }
 
+    public function register()
+    {
+        $data = [
+            'username' => $this->request->getVar('username'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'role_id' => 1,
+            'status' => 1,
+        ];
+        $user = $this->auth_model->where('username', $data['username'])->findAll();
+        if (!$user) {
+            $this->auth_model->save($data, true);
+            return redirect()->to('/login');
+        }
+        session()->setFlashdata('MssgWo', "Username telah terdaftar");
+        return redirect()->to('/login');
+    }
+    public function regis()
+    {
+        return view('admin/register');
+    }
 
     public function homepage()
     {

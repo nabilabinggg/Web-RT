@@ -40,6 +40,9 @@ $routes->get('/data_penduduk', 'admin::tambah_data_penduduk',);
 $routes->get('/buat_akun', 'auth::buat_akun',);
 $routes->post('/tambah_akun', 'auth::t_akun',);
 $routes->post('/save_data', 'admin::data_warga');
+$routes->get('/register', 'auth::regis');
+$routes->post('/register', 'auth::register');
+
 
 
 
