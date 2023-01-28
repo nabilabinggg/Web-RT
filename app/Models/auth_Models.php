@@ -30,4 +30,11 @@ class auth_Models extends Model
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    public function auth_usermod($table, $data)
+    {
+        $db         = \Config\Database::connect();
+        $builder    = $db->table($table);
+        $builder->insert($data);
+    }
 }
