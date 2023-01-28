@@ -23,11 +23,10 @@ class auth extends BaseController
             if (password_verify($password, $user['password']) && $user['username']  == $username) {
                 $ses_user = [
                     'username' => $user['username'],
-                    'role' => $user['role_id']
-
+                    'role' => $user['role_id'],
+                    'logged_in' => TRUE
                 ];
                 if ($ses_user == 1) {
-
                     session()->set($ses_user);
                     return redirect()->to('superadmin/index');
                 }
@@ -45,6 +44,7 @@ class auth extends BaseController
             return redirect()->to('/login');
         }
     }
+
     public function login()
     {
         return view('auth/login');
@@ -55,6 +55,7 @@ class auth extends BaseController
     {
         return view('admin/t_akun');
     }
+
     public function t_akun()
     {
         $data = [
@@ -88,6 +89,7 @@ class auth extends BaseController
         session()->setFlashdata('MssgWo', "Username telah terdaftar");
         return redirect()->to('/login');
     }
+
     public function regis()
     {
         return view('admin/register');
@@ -100,10 +102,7 @@ class auth extends BaseController
 
     public function logout()
     {
-        delete_cookie("cookie_username");
-        delete_cookie("cookie_password");
         session()->destroy();
         return redirect()->to('/login');
     }
-
 }

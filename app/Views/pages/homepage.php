@@ -11,10 +11,9 @@
     <div class="container">
         <div class="banner">
             <div class="banner-text">
-                <h1>SIDUBI</h1>
-                <p>SIDUBI merupakan website khusus RT 001 - 009 Desa LPUG Kecamatan LPUG
-                <br>Kota Depok Provinsi Jawa Barat<br></p>
-                <button>Lebih Lanjut</button>
+                <h1 style="text-align: center;">SIDUBI</h1>
+                <p>SIDUBI merupakan website khusus RT 001 - 009 Desa LPUG Kecamatan LPUG Kota Depok Provinsi Jawa Barat</p>
+                <button style="display:relative; justify-content: center;">Lebih Lanjut</button>
             </div>
         </div><br>
 
@@ -23,7 +22,7 @@
                 <h1><center>Data Warga</center></h1><br>
                 <table class="table">
                     <thead>
-                        <th>RT</th>
+                        <th style="border-radius: 10px 0px 0px 10px;">RT</th>
                         <th>Penyewa</th>
                         <th>Tetap</th>
                         <th>Balita</th>
