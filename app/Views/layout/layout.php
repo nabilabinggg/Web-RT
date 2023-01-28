@@ -16,12 +16,12 @@
     <!-- Header -->
     <header>
         <div class="navbar">
-            <div class="logo">Nama web</div>
+            <div class="logo">SIDUBI</div>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="#">Tentang</a></li>
-                    <li><a href="#">Kontak</a></li>
                     <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Data Warga</a></li>
+                    <li><a href="#">Tentang</a></li>
                     <li><a href="<?= base_url('login') ?>">Login</a></li>
                 </ul>
             </nav>
