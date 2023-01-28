@@ -72,6 +72,6 @@
 </div>
 
 <button>
-    <a href="/">logout</a></button>
+    <a href="<?= base_url('logout') ?>">logout</a></button>
 
 </html>
