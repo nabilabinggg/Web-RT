@@ -6,7 +6,7 @@ use CodeIgniter\Database\Migration;
 
 class User extends Migration
 {
-    public function up()
+	public function up()
 	{
 		// Membuat kolom/field untuk tabel news
 		$this->forge->addField([
@@ -26,18 +26,18 @@ class User extends Migration
 			],
 			'role_id' => [
 				'type'           => 'INT',
-                'constrain'      => 1
+				'constrain'      => 1
 			],
 			'status'      => [
 				'type'           => 'int',
 				'constraint'     => 1,
 			],
-            'created_at'=>[
-                'type'           =>'datetime'
-            ],
-            'updated_at'=>[
-                'type'          =>'datetime'
-            ]
+			'created_at' => [
+				'type'           => 'datetime'
+			],
+			'updated_at' => [
+				'type'          => 'datetime'
+			]
 		]);
 
 		// Membuat primary key
