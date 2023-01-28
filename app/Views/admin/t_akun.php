@@ -32,12 +32,13 @@
                     ROLE ID
                 </th>
                 <td>
-                    : <select name="role_id" id="">
-                        <option value="0"> </option>
+                    :
+                    <select name="role_id" id="">
+                        <option value="role_id"> </option>
                         <option value="2"> RT </option>
                         <option value="3"> RW </option>
                         <option value="4"> DKM </option>
-                    </select>
+                    </select> -->
                 </td>
             </tr>
             <button type="submit" style="text-align:justify">Save</button>

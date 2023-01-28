@@ -15,17 +15,6 @@
             <th> PASSWORD </th>
             <td> : <input type="text" name="password"></td>
         </tr>
-        <tr>
-            <th>
-                ROLE ID
-            </th>
-            <td>
-                : <select name="role_id" id="">
-                    <option value="1"> superadmin </option>
-
-                </select>
-            </td>
-        </tr>
         <button type="submit" style="text-align:justify">Save</button>
     </table>
 
