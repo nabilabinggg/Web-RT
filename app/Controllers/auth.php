@@ -30,7 +30,17 @@ class auth extends BaseController
 
                     session()->set($ses_user);
                     return redirect()->to('superadmin/index');
+                } elseif ($ses_user == 2) {
+                    session()->set($ses_user);
+                    return redirect()->to('/index');
+                } elseif ($ses_user == 3) {
+                    session()->set($ses_user);
+                    return redirect()->to('');
+                } elseif ($ses_user == 4) {
+                    session()->set($ses_user);
+                    return redirect('');
                 }
+
                 // JIKA PASSWORD BENAR
                 session()->set($ses_user);
                 return redirect()->to('/index');
