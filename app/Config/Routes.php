@@ -39,7 +39,7 @@ $routes->get('/logout', 'auth::logout',);
 $routes->get('/buat_akun', 'auth::buat_akun',);
 $routes->post('/tambah_akun', 'auth::t_akun',);
 //ADMIN
-$routes->get('/index', 'admin::index', ['filter' => 'checkauth']);
+$routes->get('/admin', 'admin::index', ['filter' => 'checkauth']);
 $routes->get('/data_penduduk', 'admin::tambah_data_penduduk',);
 $routes->post('/save_data', 'admin::data_warga');
 
