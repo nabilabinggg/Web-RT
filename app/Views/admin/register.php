@@ -5,15 +5,15 @@
             <th>
                 ID
             </th>
-            <td> : <input type="input" name="id"></td>
+            <td> : <input type="input" name="id" required></td>
         </tr>
         <tr>
             <th> USERNAME </th>
-            <td> : <input type="input" name="username"></td>
+            <td> : <input type="input" name="username" required></td>
         </tr>
         <tr>
             <th> PASSWORD </th>
-            <td> : <input type="text" name="password"></td>
+            <td> : <input type="text" name="password" required></td>
         </tr>
         <button type="submit" style="text-align:justify">Save</button>
     </table>

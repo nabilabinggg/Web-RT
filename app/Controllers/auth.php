@@ -61,7 +61,7 @@ class auth extends BaseController
             'username' => $this->request->getVar('username'),
             'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             'role_id' => $this->request->getVar('role_id'),
-            'status' => 1,
+            'status' => $this->request->getVar('status'),
         ];
         $user = $this->auth_model->where('username', $data['username'])->findAll();
         if (!$user) {

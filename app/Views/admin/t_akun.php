@@ -14,18 +14,12 @@
     <form action="/tambah_akun" method="post">
         <table style="text-align: left; justify-content: center;">
             <tr>
-                <th>
-                    ID
-                </th>
-                <td> : <input type="input" name="id"></td>
-            </tr>
-            <tr>
                 <th> USERNAME </th>
-                <td> : <input type="input" name="username"></td>
+                <td> : <input type="input" name="username" required></td>
             </tr>
             <tr>
                 <th> PASSWORD </th>
-                <td> : <input type="text" name="password"></td>
+                <td> : <input type="text" name="password" required></td>
             </tr>
             <tr>
                 <th>
@@ -33,12 +27,24 @@
                 </th>
                 <td>
                     :
-                    <select name="role_id" id="">
+                    <select name="role_id" id="" required>
                         <option value="role_id"> </option>
                         <option value="2"> RT </option>
                         <option value="3"> RW </option>
                         <option value="4"> DKM </option>
-                    </select> -->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    STATUS
+                </th>
+                <td>
+                    :
+                    <select name="status" id="" required>
+                        <option value="0"> NON-AKTIF </option>
+                        <option value="1"> AKTIF </option>
+                    </select>
                 </td>
             </tr>
             <button type="submit" style="text-align:justify">Save</button>
