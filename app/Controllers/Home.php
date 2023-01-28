@@ -4,8 +4,12 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index()
+    public function index_()
     {
-        return view('welcome_message');
+        $data = [
+            'title' => 'RT'
+        ];
+        return view('pages/homepage', $data);
+
     }
 }
