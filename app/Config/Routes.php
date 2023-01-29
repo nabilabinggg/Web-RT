@@ -31,7 +31,10 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index_');
 $routes->get('/login', 'Login::index', ['as' => 'login']);
-//AUTH
+$routes->get('/rete', 'Login::rete', ['as' => 'login RT']);
+$routes->get('/rewe', 'Login::rewe', ['as' => 'login RW']);
+$routes->get('/kbm', 'Login::dkm', ['as' => 'login DKM']);
+//AUTH 
 $routes->get('/register', 'auth::regis');
 $routes->post('/register', 'auth::register');
 $routes->post('/logon', 'auth::logon',);
@@ -54,6 +57,7 @@ $routes->post('/provinsi', 'admin::provinsi');
 $routes->get('/tambah_data_provinsi', 'admin::tambah_data_provinsi',);
 $routes->post('/data_kk', 'admin::data_kk');
 $routes->get('/tambah_data_kk', 'admin::tambah_data_kk',);
+
 
 /*
  * --------------------------------------------------------------------

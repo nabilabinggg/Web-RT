@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\auth_Models;
 
+use App\Filters\CheckAuth;
 
 class auth extends BaseController
 {
@@ -26,6 +27,12 @@ class auth extends BaseController
                     'role' => $user['role_id'],
                     'logged_in' => TRUE
                 ];
+                //HEAD
+                if ($ses_user['role'] == 1) {
+
+                    session()->set($ses_user);
+                    return redirect()->to('/admin');
+                }
                 // JIKA PASSWORD BENAR
                 session()->set($ses_user);
                 return redirect()->to('/admin');

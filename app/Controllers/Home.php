@@ -10,6 +10,5 @@ class Home extends BaseController
             'title' => 'RT'
         ];
         return view('pages/homepage', $data);
-
     }
 }
