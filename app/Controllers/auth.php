@@ -23,9 +23,10 @@ class auth extends BaseController
             if (password_verify($password, $user['password']) && $user['username']  == $username) {
                 $ses_user = [
                     'username' => $user['username'],
-                    'role' => $user['role_id']
-
+                    'role' => $user['role_id'],
+                    'logged_in' => TRUE
                 ];
+                //HEAD
                 if ($ses_user == 1) {
 
                     session()->set($ses_user);
@@ -43,7 +44,7 @@ class auth extends BaseController
 
                 // JIKA PASSWORD BENAR
                 session()->set($ses_user);
-                return redirect()->to('/index');
+                return redirect()->to('/admin');
             } else {
                 // Jika password Salah
                 session()->setFlashdata('MssgWo', "Password Salah");
@@ -55,16 +56,18 @@ class auth extends BaseController
             return redirect()->to('/login');
         }
     }
+
     public function login()
     {
         return view('auth/login');
-        return redirect()->to('/index');
+        return redirect()->to('/admin');
     }
 
     public function buat_akun()
     {
         return view('admin/t_akun');
     }
+
     public function t_akun()
     {
         $data = [
@@ -76,10 +79,10 @@ class auth extends BaseController
         $user = $this->auth_model->where('username', $data['username'])->findAll();
         if (!$user) {
             $this->auth_model->save($data, true);
-            return redirect()->to('/index');
+            return redirect()->to('/admin');
         }
         session()->setFlashdata('MssgWo', "Username telah terdaftar");
-        return redirect()->to('/index');
+        return redirect()->to('/admin');
     }
 
     public function register()
@@ -98,6 +101,7 @@ class auth extends BaseController
         session()->setFlashdata('MssgWo', "Username telah terdaftar");
         return redirect()->to('/login');
     }
+
     public function regis()
     {
         return view('admin/register');
@@ -108,8 +112,9 @@ class auth extends BaseController
         return view('Pages/homepage');
     }
 
-    public function logoout()
+    public function logout()
     {
-        return redirect()->to('/');
+        session()->destroy();
+        return redirect()->to('/login');
     }
 }
