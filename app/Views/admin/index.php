@@ -2,6 +2,12 @@
 <?php if (session()->get('role') == 1) : ?>
 <button> <a href="/buat_akun">Tambah Akun</button></a>
 <button> <a href="/data_penduduk">Tambah Data Penduduk</a></button>
+<button> <a href="/tambah_data_rt">Tambah RT</a></button>
+<button> <a href="/tambah_data_rw">Tambah RW</a></button>
+<button> <a href="/tambah_data_kecamatan">Tambah Kecamatan</a></button>
+<button> <a href="/tambah_data_kelurahan">Tambah Kelurahan</a></button>
+<button> <a href="/tambah_data_provinsi">Tambah Provinsi</a></button>
+<button> <a href="/tambah_data_kk">Tambah KK</a></button>
 <h2>halamannya keseluruhan yaa</h2>
 <?php endif; ?>
 

@@ -45,6 +45,18 @@ $routes->post('/tambah_akun', 'auth::t_akun',);
 $routes->get('/admin', 'admin::index', ['filter' => 'checkauth']);
 $routes->get('/data_penduduk', 'admin::tambah_data_penduduk',);
 $routes->post('/save_data', 'admin::data_warga');
+$routes->post('/rt', 'admin::rt');
+$routes->get('/tambah_data_rt', 'admin::tambah_data_rt',);
+$routes->post('/rw', 'admin::rw');
+$routes->get('/tambah_data_rw', 'admin::tambah_data_rw',);
+$routes->post('/kecamatan', 'admin::kecamatan');
+$routes->get('/tambah_data_kecamatan', 'admin::tambah_data_kecamatan',);
+$routes->post('/kelurahan', 'admin::kelurahan');
+$routes->get('/tambah_data_kelurahan', 'admin::tambah_data_kelurahan',);
+$routes->post('/provinsi', 'admin::provinsi');
+$routes->get('/tambah_data_provinsi', 'admin::tambah_data_provinsi',);
+$routes->post('/data_kk', 'admin::data_kk');
+$routes->get('/tambah_data_kk', 'admin::tambah_data_kk',);
 
 
 /*

@@ -23,32 +23,60 @@ class admin extends BaseController
     public function tambah_data_penduduk()
     {
         return view('admin/t_data_penduduk');
-        return redirect('/index');
     }
-
+    public function tambah_data_rt()
+    {
+        return view('admin/t_data_rt');
+    }
+    public function tambah_data_rw()
+    {
+        return view('admin/t_data_rw');
+    }
+    public function tambah_data_kecamatan()
+    {
+        return view('admin/t_data_kecamatan');
+    }
+    public function tambah_data_kelurahan()
+    {
+        return view('admin/t_data_kelurahan');
+    }
+    public function tambah_data_provinsi()
+    {
+        return view('admin/t_data_provinsi');
+    }
+    public function tambah_data_kk()
+    {
+        return view('admin/t_data_kk');
+    }
     public function provinsi()
     {
-        $this->adminmodels->addvaluearea('provinsi', $this->request->getVar('provinsi'));
+        $this->adminmodels->data_wargamod('provinsi', $this->request->getVar());
+        return redirect()->to('/admin');
     }
     public function kecamatan()
     {
-        $this->adminmodels->addvaluearea('kecamatan', $this->request->getVar('kecamatan'));
+        $this->adminmodels->data_wargamod('kecamatan', $this->request->getVar());
+        return redirect()->to('/admin');
     }
     public function kelurahan()
     {
-        $this->adminmodels->addvaluearea('kelurahan', $this->request->getVar('kelurahan'));
+        $this->adminmodels->data_wargamod('kelurahan', $this->request->getVar());
+        return redirect()->to('/admin');
     }
     public function rt()
     {
-        $this->adminmodels->addvaluearea('rt', $this->$this->request->getVar('rt'));
+        $this->adminmodels->data_wargamod('rt', $this->request->getVar());
+        return redirect()->to('/admin');
     }
     public function rw()
     {
-        $this->adminmodels->addvaluearea('rw', $this->$this->request->getVar('rw'));
+        $this->adminmodels->data_wargamod('rw', $this->request->getVar());
+        return redirect()->to('/admin');
     }
-    public function kk()
+    public function data_kk()
     {
         $this->adminmodels->save($this->request->getVar());
+        return redirect()->to('/admin');
     }
     public function maping()
     {
