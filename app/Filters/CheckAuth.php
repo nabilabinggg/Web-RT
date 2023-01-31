@@ -11,32 +11,31 @@ class CheckAuth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
+
         // jika user belum login
         if (!session()->get('logged_in')) {
-            //beri pesan
-            session()->setFlashdata('pesan', 'anda belum login');
-            // maka redirct ke halaman login
+            //maka redirect ke halaman login
             return redirect()->to('/login');
-        }
-        if (session()->get('role_id' == 2)) {
-            //jika login sebgai role 2 maka return ke halaman rete
-            return redirect()->to('/rete');
-        } elseif (session()->get('role_id' == 3)) {
-            return redirect()->to('/rewe');
-        } elseif (session()->get('role_id' == 4)) { //jika login sebagai role = 3 maka return redirect ke halaman rewe
-            return redirect()->to('/dkm');
-        } else {
-            return redirect()->to('/admin');
+            // }
+            // if (session()->get('logged_in')) {
+            //     return redirect()->to('/admin');
         }
     }
+
 
     //--------------------------------------------------------------------
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-
-
-        //jika sudah login maka diarahkan ke halaman admin
-
+        // if (session()->get('logged_in')) {
+        //     if (session()->get('role') == 1) {
+        //         return redirect()->to('/admin');
+        //     } elseif (session()->get('role') == 2) {
+        //         return redirect()->to('/rete');
+        //     // elseif (session()->get('role') == 2) {
+        //     //     return redirect()->to('/rete');
+        //     // }
+        //     }
+        // }
     }
 }

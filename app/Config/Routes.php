@@ -29,20 +29,22 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->get('/register', 'registrasi::regis');
+$routes->post('/register', 'registrasi::register');
+///////////////////////////////////////////////
 $routes->get('/', 'Home::index_');
-$routes->get('/login', 'Login::index', ['as' => 'login']);
-$routes->get('/rete', 'Login::rete', ['as' => 'login RT']);
-$routes->get('/rewe', 'Login::rewe', ['as' => 'login RW']);
-$routes->get('/kbm', 'Login::dkm', ['as' => 'login DKM']);
+$routes->get('/login', 'Login::index');
+$routes->post('/logon', 'Login::logon',);
+$routes->get('/rt', 'rete::indexrt');
+$routes->get('/rewe', 'rewe::indexrw');
+$routes->get('/dkm', 'dkm::dkm');
 //AUTH 
-$routes->get('/register', 'auth::regis');
-$routes->post('/register', 'auth::register');
-$routes->post('/logon', 'auth::logon',);
 $routes->get('/logout', 'auth::logout',);
 $routes->get('/buat_akun', 'auth::buat_akun',);
 $routes->post('/tambah_akun', 'auth::t_akun',);
 //ADMIN
-$routes->get('/admin', 'admin::index', ['filter' => 'checkauth']);
+// $routes->get('/admin', 'admin::index', ['filter' => 'checkauth']);
+$routes->get('/admin', 'admin::index');
 $routes->get('/data_penduduk', 'admin::tambah_data_penduduk',);
 $routes->post('/save_data', 'admin::data_warga');
 $routes->post('/rt', 'admin::rt');
@@ -55,8 +57,10 @@ $routes->post('/kelurahan', 'admin::kelurahan');
 $routes->get('/tambah_data_kelurahan', 'admin::tambah_data_kelurahan',);
 $routes->post('/provinsi', 'admin::provinsi');
 $routes->get('/tambah_data_provinsi', 'admin::tambah_data_provinsi',);
-$routes->post('/data_kk', 'admin::data_kk');
-$routes->get('/tambah_data_kk', 'admin::tambah_data_kk',);
+//////////////////////////////////////////////////////////////////////
+//kk
+$routes->post('/data_kk', 'kk::data_kk');
+$routes->get('/tambah_data_kk', 'kk::tambah_data_kk',);
 
 
 /*

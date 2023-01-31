@@ -9,6 +9,8 @@ use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\CheckAuth;
+use App\Filters\checkRewe;
+// use App\Filters\checkRole;
 
 class Filters extends BaseConfig
 {
@@ -23,6 +25,8 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'checkauth'     => CheckAuth::class,
+        // 'checkrole'     => checkRole::class,
+        'checkrewe'     => checkRewe::class,
     ];
 
     /**
@@ -31,12 +35,36 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
+
+            //         //sebelum login, bisa mengakses controller auth dengan function regis saja.
+            'checkauth' => [
+                'except' => [
+                    'Login', 'Login/*',
+                    'registrasi', 'registrasi/*',
+                ]
+            ]
+        ],
+        'checkrewe' => [
+            'except' => [
+                'rewe', 'rewe/*'
+            ]
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
         ],
         'after' => [
             'toolbar',
+            //     'checkauth' => [
+            //         'except' => [
+            //             // 'admin', 'admin/*'
+            //             'Login', 'Login/dkm'
+            //         ]
+            // ],
+            'checkauth' => [
+                'except' => [
+                    'admin', 'admin/*',
+                ]
+            ]
             // 'honeypot',
             // 'secureheaders',
         ],
@@ -63,14 +91,21 @@ class Filters extends BaseConfig
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
     public array $filters = [
-        'checkauth' => [
-            'before' =>
-            [
-                '/admin',
-                '/data_penduduk',
-                '/buat_akun',
+        'before' => [
+            // jika tidak bisa login, tidak dapat mengakses semua url yang terdapat pada parameter before
+            // 'checkrewe' => [
+            // 'except' => ['rewe', 'rewe/*']
+            //     '/admin', 'data_penduduk', 'save_data', 'tambah_data_rt', 'rw', 'kecamatan', 'tambah_data_kecamatan', 'kelurahan',
+            //     '/rete', 'rt', 'rewe', 'dkm',
+            //     '/buat_akun', '/tambah_akun',
+            //     'tambah_data_kelurahan', 'provinsi', 'tambah_data_provinsi', 'data_kk', 'tambah_data_kk'
+        ]
+        // ],
+        // 'checkrewe' => [
+        //     'before' => [
+        //         'except' => ['rewe', 'rewe/*']
 
-            ]
-        ],
+        //     ]
+        // ]
     ];
 }
