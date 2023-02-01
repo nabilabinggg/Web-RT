@@ -15,12 +15,10 @@ class Login extends BaseController
 
     public function index()
     {
+
         $data = [
             'title' => 'Login'
         ];
-        if (session()->get('logged_in')) {
-            return redirect()->to('/admin');
-        }
         return view('pages/login', $data);
     }
 
@@ -29,7 +27,6 @@ class Login extends BaseController
     {
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
-
         $user = $this->auth_model->where(['username' => $username])->first();
         if ($user) {
             if (password_verify($password, $user['password']) && $user['username']  == $username) {
@@ -38,9 +35,10 @@ class Login extends BaseController
                     'role' => $user['role_id'],
                     'logged_in' => TRUE
                 ];
+                
                 //HEAD
+                session()->set($ses_user);
                 if ($ses_user['role'] == 1) {
-                    session()->set($ses_user);
                     return redirect()->to('/admin');
                 } elseif ($ses_user['role'] == 2) {
                     return redirect()->to('/rete');
