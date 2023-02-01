@@ -5,10 +5,11 @@ namespace Config;
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 $role="";
-if(session()->get('role') == 1){
+if(session()->('role') == 1){
     $role = 'admin';
 }elseif(session()->get('role') == 2){
     $role = 'rete';
+    dd(Session()->get('role'));
 }
 /*
  * --------------------------------------------------------------------
@@ -34,29 +35,22 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/register', 'registrasi::regis');
-$routes->post('/register', 'registrasi::register');
-///////////////////////////////////////////////
-if($role == 'rete'){
-    $routes->get($role, $role.'::indexrt');
-    $routes->get($role.'/tambah_data_warga', $role.'::tambah_data_warga');
-}
 $routes->get('/', 'Home::index_');
-$routes->get('/login', 'Login::index');
-$routes->post('/logon', 'Login::logon',);
-
-$routes->get('/rewe', 'rewe::indexrw');
-$routes->get('/dkm', 'dkm::dkm');
+$routes->get('/login', 'Login::index', ['as' => 'login']);
+$routes->get('/rete', 'Login::rete', ['as' => 'login RT']);
+$routes->get('/rewe', 'Login::rewe', ['as' => 'login RW']);
+$routes->get('/kbm', 'Login::dkm', ['as' => 'login DKM']);
 //AUTH 
+$routes->get('/register', 'auth::regis');
+$routes->post('/register', 'auth::register');
+$routes->post('/logon', 'auth::logon',);
 $routes->get('/logout', 'auth::logout',);
 $routes->get('/buat_akun', 'auth::buat_akun',);
 $routes->post('/tambah_akun', 'auth::t_akun',);
 //ADMIN
-// $routes->get('/admin', 'admin::index', ['filter' => 'checkauth']);
-if($role == 'admin'){
-$routes->get('/admin', 'admin::index');
-$routes->get($role.'/data_penduduk', $role.'::tambah_data_penduduk',);
-$routes->post($role.'/save_data','admin::data_warga');
+$routes->get('/admin', 'admin::index', ['filter' => 'checkauth']);
+$routes->get('/data_penduduk', 'admin::tambah_data_penduduk',);
+$routes->post('/save_data', 'admin::data_warga');
 $routes->post('/rt', 'admin::rt');
 $routes->get('/tambah_data_rt', 'admin::tambah_data_rt',);
 $routes->post('/rw', 'admin::rw');
@@ -69,12 +63,7 @@ $routes->post('/provinsi', 'admin::provinsi');
 $routes->get('/tambah_data_provinsi', 'admin::tambah_data_provinsi',);
 $routes->post('/data_kk', 'admin::data_kk');
 $routes->get('/tambah_data_kk', 'admin::tambah_data_kk',);
-}
 
-// RT
-'/rete/.........';
-// RW
-'/rewe/.........';
 
 /*
  * --------------------------------------------------------------------
