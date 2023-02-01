@@ -23,7 +23,7 @@
                 <h1><center>Data Warga</center></h1><br>
                 <table class="table">
                     <thead>
-                        <th>RT</th>
+                        <th><i class="fa-solid fa-house"></i>RT</th>
                         <th>Penyewa</th>
                         <th>Tetap</th>
                         <th>Balita</th>

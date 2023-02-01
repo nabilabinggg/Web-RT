@@ -33,6 +33,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/login', 'Login::index', ['as' => 'login']);
 $routes->post('/login', 'Login::login',);
 $routes->get('/homepage', 'auth::homepage',);
+$routes->get('/dashboard', 'Dashboard::index',);
 
 
 
