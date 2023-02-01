@@ -16,10 +16,7 @@ class admin extends BaseController
     {
         return view('admin/index');
     }
-    // public function tambah_akun()
-    // {
-    //     return view('admin/t_akun');
-    // }
+
     public function tambah_data_penduduk()
     {
         return view('admin/t_data_penduduk');
@@ -44,10 +41,7 @@ class admin extends BaseController
     {
         return view('admin/t_data_provinsi');
     }
-    public function tambah_data_kk()
-    {
-        return view('admin/t_data_kk');
-    }
+
     public function provinsi()
     {
         $this->adminmodels->data_wargamod('provinsi', $this->request->getVar());
@@ -73,11 +67,7 @@ class admin extends BaseController
         $this->adminmodels->data_wargamod('rw', $this->request->getVar());
         return redirect()->to('/admin');
     }
-    public function data_kk()
-    {
-        $this->adminmodels->save($this->request->getVar());
-        return redirect()->to('/admin');
-    }
+
     public function maping()
     {
         $this->adminmodels->mapingmod('maping', $this->request->getVar());
@@ -120,10 +110,7 @@ class admin extends BaseController
         ];
         $this->adminmodels->update_data($table, $condition, $this->request->getVar());
     }
-    public function update_kk()
-    {
-        $this->adminmodels->where('id', $this->request->getVar('id'))->set($this->request->getVar())->update();
-    }
+
     public function delete_data()
     {
         $table = $this->request->getVar('table');
@@ -133,6 +120,20 @@ class admin extends BaseController
         $this->adminmodels->delete_data($table, $condition);
     }
 
+    public function data_kk()
+    {
+        $this->adminmodels->save($this->request->getVar());
+        return redirect()->to('/admin');
+    }
+    public function tambah_data_kk()
+    {
+        return view('admin/t_data_kk');
+    }
+
+    public function update_kk()
+    {
+        $this->adminmodels->where('id', $this->request->getVar('id'))->set($this->request->getVar())->update();
+    }
     public function delete_kk()
     {
         $this->adminmodels->where('id', $this->request->getVar('id'))->delete();

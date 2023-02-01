@@ -9,6 +9,8 @@ use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\CheckAuth;
+use App\Filters\CheckRewe;
+// use App\Filters\checkRole;
 
 class Filters extends BaseConfig
 {
@@ -23,6 +25,8 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'checkauth'     => CheckAuth::class,
+        // 'checkrole'     => checkRole::class,
+        'checkrewe'     => checkRewe::class,
     ];
 
     /**
@@ -31,15 +35,41 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
-            // 'honeypot',
-            // 'csrf',
-            // 'invalidchars',
-        ],
-        'after' => [
-            'toolbar',
-            // 'honeypot',
-            // 'secureheaders',
-        ],
+            // sebelum login, bisa mengakses controller auth dengan function regis saja.
+            //     'checkauth' => [
+            //         'except' => [
+            //             '/',
+            //             'login', 'login/*',
+            //             'register', 'register/*'
+            //         ]
+            //     ],
+            //     'checkrewe' => [
+            //         'except' => [
+            //             '/',
+            //             'login', 'login/*',
+            //             'register', 'register/*'
+            //         ]
+            //         //     //     // 'honeypot',
+            //         //     //     // 'csrf',
+            //         //     //     // 'invalidchars',
+            //     ],
+            // ],
+            // 'after' => [
+            //     'toolbar',
+            //     'checkrewe' => [
+            //         'except' => [
+            //             'rewe', 'rewe/*'
+
+            //         ]
+            //     ],
+            //     'checkauth' => [
+            //         'except' => [
+            //             'admin', 'admin/*',
+            //         ]
+            //     ]
+            //     //     // 'honeypot',
+            //     //     // 'secureheaders',
+        ]
     ];
 
     /**
@@ -63,14 +93,32 @@ class Filters extends BaseConfig
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
     public array $filters = [
-        'checkauth' => [
-            'before' =>
-            [
-                '/admin',
-                '/data_penduduk',
-                '/buat_akun',
+        'before' => [
+            'checkrewe' => [
+                'except' => [
+                    '/',
+                    'login', 'login/*',
+                    'register', 'register/*'
+                ]
+                // jika tidak bisa login, tidak dapat mengakses semua url yang terdapat pada parameter before
 
+                //             // '/admin', 'data_penduduk', 'save_data', 'tambah_data_rt', 'rw', 'kecamatan', 'tambah_data_kecamatan', 'kelurahan',
+                //             // '/rete', 'rt', 'rewe', 'dkm',
+                //             // '/buat_akun', '/tambah_akun',
+                //             // 'tambah_data_kelurahan', 'provinsi', 'tambah_data_provinsi', 'data_kk', 'tambah_data_kk'
             ]
         ],
+        // 'after' => [
+        //     'checkrewe' => [
+        //         'except' => [
+        //             'rewe', 'rewe/*'
+        //         ]
+        //     ],
+        // ]
+
+        //     'checkauth' => [
+        //         'except' => ['admin', 'admin/*']
+
+        // ]
     ];
 }
