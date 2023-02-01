@@ -23,14 +23,15 @@ class CheckRewe implements FilterInterface
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        //buat cek login berdasarkan role
-        if (session()->get('logged_in')) {
-            if (session()->get('role') == 3) {
-                return redirect()->to('/rewe');
-            } else {
-                return redirect()->to('/dkm');
-            }
+        if (session()->get('role') == 3) {
+            return redirect()->to('/rewe');
         }
+        //  {
+        // return redirect()->to('/dkm');
+        // }
+        //buat cek login berdasarkan role
+        // if (session()->get('logged_in')) {
+        // }
 
 
 

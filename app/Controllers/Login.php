@@ -63,16 +63,4 @@ class Login extends BaseController
             return redirect()->to('/login');
         }
     }
-
-
-    // private function Login()
-    // {
-    //     if (session('username')) {
-    //         return redirect()->to('/admin');
-    //     } elseif (session('role' == 2)) {
-    //         return redirect()->to('/rete');
-    //     } elseif (session('role' == 3)) {
-    //         return redirect()->to('rewe');
-    //     }
-    //}
 }

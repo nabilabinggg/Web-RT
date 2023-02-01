@@ -35,7 +35,7 @@ $routes->post('/register', 'registrasi::register');
 $routes->get('/', 'Home::index_');
 $routes->get('/login', 'Login::index');
 $routes->post('/logon', 'Login::logon',);
-$routes->get('/rt', 'rete::indexrt');
+$routes->get('/rete', 'rete::indexrt');
 $routes->get('/rewe', 'rewe::indexrw');
 $routes->get('/dkm', 'dkm::dkm');
 //AUTH 
@@ -57,10 +57,8 @@ $routes->post('/kelurahan', 'admin::kelurahan');
 $routes->get('/tambah_data_kelurahan', 'admin::tambah_data_kelurahan',);
 $routes->post('/provinsi', 'admin::provinsi');
 $routes->get('/tambah_data_provinsi', 'admin::tambah_data_provinsi',);
-//////////////////////////////////////////////////////////////////////
-//kk
-$routes->post('/data_kk', 'kk::data_kk');
-$routes->get('/tambah_data_kk', 'kk::tambah_data_kk',);
+$routes->post('/data_kk', 'admin::data_kk');
+$routes->get('/tambah_data_kk', 'admin::tambah_data_kk',);
 
 
 /*

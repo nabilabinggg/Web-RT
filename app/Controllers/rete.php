@@ -9,9 +9,15 @@ class rete extends BaseController
         $data = [
             'title' => 'Halaman RT'
         ];
-        if (session()->get('logged_in')) {
-            return redirect()->to('/rete');
-        }
         return view('admin/rete');
+        // if (!session()->get('logged_in')) {
+        //     return redirect()->to('/login');
+        // } else {
+        //     if (session()->get('role' == 2)) {
+        //         return view('admin/rete');
+        //     } else {
+        //         dd("bukan rt");
+        //     }
+        // }
     }
 }

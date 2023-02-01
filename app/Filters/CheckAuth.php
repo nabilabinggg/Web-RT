@@ -13,12 +13,15 @@ class CheckAuth implements FilterInterface
     {
 
         // jika user belum login
-        if (!session()->get('logged_in')) {
+        if (!session()->get('role')) {
             //maka redirect ke halaman login
             return redirect()->to('/login');
-            // }
-            // if (session()->get('logged_in')) {
-            //     return redirect()->to('/admin');
+        } else {
+            if (session()->get('role')) {
+                return redirect()->to('/admin');
+            } else {
+                dd("bukan admin");
+            }
         }
     }
 

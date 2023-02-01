@@ -14,12 +14,6 @@
     <form action="/save_data" method="post">
         <table style="text-align: left; justify-content: center;">
             <tr>
-                <th>
-                    ID
-                </th>
-                <td> : <input type="input" name="id" required></td>
-            </tr>
-            <tr>
                 <th> NO KK</th>
                 <td> : <input type="input" name="id_kk" required></td>
             </tr>

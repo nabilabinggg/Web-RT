@@ -36,14 +36,6 @@ class auth extends BaseController
         return redirect()->to('/admin');
     }
 
-
-
-
-    public function homepage()
-    {
-        return view('Pages/homepage');
-    }
-
     public function logout()
     {
         session()->destroy();
