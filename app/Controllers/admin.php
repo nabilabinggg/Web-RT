@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\AdminModels;
+use App\Models\auth_Models;
 
 class admin extends BaseController
 {
     protected $adminmodels;
+    protected $auth_model;
 
     public function __construct()
     {
         $this->adminmodels = new AdminModels();
+        $this->auth_model = new auth_Models();
     }
     public function index()
     {
@@ -127,7 +130,8 @@ class admin extends BaseController
     }
     public function tambah_data_kk()
     {
-        return view('admin/t_data_kk');
+        $data = ['data' => $this->adminmodels->getdata('rt', array())];
+        return view('admin/t_data_kk', $data);
     }
 
     public function update_kk()
@@ -137,5 +141,27 @@ class admin extends BaseController
     public function delete_kk()
     {
         $this->adminmodels->where('id', $this->request->getVar('id'))->delete();
+    }
+
+    public function buat_akun()
+    {
+        return view('admin/t_akun');
+    }
+
+    public function t_akun()
+    {
+        $data = [
+            'username' => $this->request->getVar('username'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'role_id' => $this->request->getVar('role_id'),
+            'status' => $this->request->getVar('status'),
+        ];
+        $user = $this->auth_model->where('username', $data['username'])->findAll();
+        if (!$user) {
+            $this->auth_model->save($data, true);
+            return redirect()->to('/admin');
+        }
+        session()->setFlashdata('MssgWo', "Username telah terdaftar");
+        return redirect()->to('/admin');
     }
 }

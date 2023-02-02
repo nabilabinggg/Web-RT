@@ -4,11 +4,15 @@ namespace Config;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
-$role="";
-if(session()->get('role') == 1){
+$role = "";
+if (session()->get('role') == 1) {
     $role = 'admin';
-}elseif(session()->get('role') == 2){
+} elseif (session()->get('role') == 2) {
     $role = 'rete';
+} elseif (session()->get('role') == 3) {
+    $role = 'rewe';
+} else {
+    $role = 'dkm';
 }
 /*
  * --------------------------------------------------------------------
@@ -37,39 +41,43 @@ $routes->set404Override();
 $routes->get('/register', 'registrasi::regis');
 $routes->post('/register', 'registrasi::register');
 ///////////////////////////////////////////////
-if($role == 'rete'){
-    $routes->get($role, $role.'::indexrt');
-    $routes->get($role.'/tambah_data_warga', $role.'::tambah_data_warga');
-}
+// if ($role == 'rete') {
+$routes->get('/rete', 'rete::indexrt');
+$routes->get($role . '/tambah_data_warga', $role . '::tambah_data_warga');
+// }
 $routes->get('/', 'Home::index_');
 $routes->get('/login', 'Login::index');
 $routes->post('/logon', 'Login::logon',);
+$routes->get('/logout', 'auth::logout',);
 
 $routes->get('/rewe', 'rewe::indexrw');
 $routes->get('/dkm', 'dkm::dkm');
 //AUTH 
-$routes->get('/logout', 'auth::logout',);
-$routes->get('/buat_akun', 'auth::buat_akun',);
-$routes->post('/tambah_akun', 'auth::t_akun',);
+// if ($role == ('role')) {
+//     $routes->get('/logout', 'auth::logout',);
+// }
+
 //ADMIN
 // $routes->get('/admin', 'admin::index', ['filter' => 'checkauth']);
-if($role == 'admin'){
+// if ($role == 'admin') {
 $routes->get('/admin', 'admin::index');
-$routes->get($role.'/data_penduduk', $role.'::tambah_data_penduduk',);
-$routes->post($role.'/save_data','admin::data_warga');
+$routes->get($role . '/data_penduduk',  'admin::tambah_data_penduduk',);
+$routes->post('/save_data', 'admin::data_warga');
 $routes->post('/rt', 'admin::rt');
-$routes->get('/tambah_data_rt', 'admin::tambah_data_rt',);
+$routes->get($role . '/tambah_data_rt', 'admin::tambah_data_rt',);
 $routes->post('/rw', 'admin::rw');
-$routes->get('/tambah_data_rw', 'admin::tambah_data_rw',);
+$routes->get($role . '/tambah_data_rw', 'admin::tambah_data_rw',);
 $routes->post('/kecamatan', 'admin::kecamatan');
-$routes->get('/tambah_data_kecamatan', 'admin::tambah_data_kecamatan',);
+$routes->get($role . '/tambah_data_kecamatan', 'admin::tambah_data_kecamatan',);
 $routes->post('/kelurahan', 'admin::kelurahan');
-$routes->get('/tambah_data_kelurahan', 'admin::tambah_data_kelurahan',);
+$routes->get($role . '/tambah_data_kelurahan', 'admin::tambah_data_kelurahan',);
 $routes->post('/provinsi', 'admin::provinsi');
-$routes->get('/tambah_data_provinsi', 'admin::tambah_data_provinsi',);
+$routes->get($role . '/tambah_data_provinsi', 'admin::tambah_data_provinsi',);
 $routes->post('/data_kk', 'admin::data_kk');
-$routes->get('/tambah_data_kk', 'admin::tambah_data_kk',);
-}
+$routes->get($role . '/tambah_data_kk', 'admin::tambah_data_kk',);
+$routes->get($role . '/buat_akun', 'admin::buat_akun',);
+$routes->post('/tambah_akun', 'admin::t_akun',);
+// }
 
 // RT
 '/rete/.........';

@@ -64,13 +64,13 @@
                     <td> :
                         <select name="id_rt" id="" required>
                             <?php foreach ($data as $rt) : ?>
-                            <option value="<?php $rt['nama'] ?>">
-                                <? $rt['nama'] ?>
+                            <option value="<?= $rt['id'] ?>">
+                                <?= $rt['id'] ?>
                             </option>
                             <?php endforeach ?>
-                            <option value="1">333</option>
+                            <!-- <option value="1">333</option>
                             <option value="2">444</option>
-                            <option value="3">555</option>
+                            <option value="3">555</option> -->
                         </select>
                     </td>
                 </tr>

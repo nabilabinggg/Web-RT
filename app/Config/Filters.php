@@ -15,13 +15,15 @@ class Filters extends BaseConfig
      * Configures aliases for Filter classes to
      * make reading things nicer and simpler.
      */
-    
+
     public array $aliases = [
         'csrf'          => CSRF::class,
         'toolbar'       => DebugToolbar::class,
         'honeypot'      => Honeypot::class,
-        'checkauth'     => \App\Filters\CheckAuth::class ,
-        'checkrole'     => \App\Filters\CheckRole::class ,
+        'checkauth'     => \App\Filters\CheckAuth::class,
+        'checkrole'     => \App\Filters\CheckRole::class,
+        'checkrw'     => \App\Filters\CheckRw::class,
+        'checkdkm'     => \App\Filters\CheckDkm::class,
     ];
 
     /**
@@ -29,36 +31,59 @@ class Filters extends BaseConfig
      * applied before and after every request.
      */
 
-   
+
     public array $globals = [
         'before' => [
             // sebelum login, bisa mengakses controller auth dengan function regis saja.
-                'checkauth' => [
-                    'except' => [
-                        'login', 'login/*',
-                        'login', 'logon',
-                        'register', 'register/*',
-                    ]],
-                'checkrole' => [
-                    'except' => [
-                        'login', 'login/*',
-                        'login', 'logon',
-                        'register', 'register/*',
-                    ]],
+            'checkauth' => [
+                'except' => [
+                    'login', 'login/*',
+                    'login', 'logon',
+                    'register', 'register/*',
+                ]
             ],
-            
-            'after' => [
-                'toolbar',
-                'checkauth' => [
-                    'except' => [
-                        'admin', 'admin/*',
-                    ]
-                    ],
-                'checkrole' => [
-                    'except' => [
-                        'rete', 'rete/*',
-                    ]
-                    ],
+            'checkrole' => [
+                'except' => [
+                    'login', 'login/*',
+                    'login', 'logon',
+                    'register', 'register/*',
+                ]
+            ],
+            'checkrole' => [
+                'except' => [
+                    'login', 'login/*',
+                    'login', 'logon',
+                    'register', 'register/*',
+                ]
+            ],
+        ],
+
+
+        'after' => [
+            'toolbar',
+            'checkauth' => [
+                'except' => [
+                    'admin', 'admin/*',
+                    'rete', 'rete/*',
+                    'rewe', 'rewe/*',
+                    'dkm', 'dkm/*',
+                ]
+            ],
+            'checkrole' => [
+                'except' => [
+                    'rete', 'rete/*',
+                ]
+            ],
+            'checkrw' => [
+                'except' => [
+                    'rewe', 'rewe/*',
+                ]
+            ],
+            'checkdkm' => [
+                'except' => [
+                    'dkm', 'dkm/*',
+                ]
+            ],
 
         ]
     ];
