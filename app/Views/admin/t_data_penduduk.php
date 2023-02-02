@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form action="/admin/save_data" method="post">
+    <form action="/save_data" method="post">
         <table style="text-align: left; justify-content: center;">
             <tr>
                 <th> NO KK</th>

@@ -16,7 +16,10 @@
             <table style="text-align: left; justify-content: center;">
                 <tr>
                     <th> NOMOR KK </th>
-                    <td> : <input type="text" name="nomor_kk" required></td>
+                    <td> : <input type="text" name="nomor_kk" required <?php foreach ($data as $data_warga) : ?>
+                            value="<?= $data_warga['id_kk'] ?>">
+                        <?php endforeach ?>
+                    </td>
                 </tr>
                 <tr>
                     <th> KEPALA KELUARGA </th>
@@ -30,7 +33,9 @@
                     <th> ID KECAMATAN </th>
                     <td> :
                         <select name="id_kecamatan" id="" required>
-                            <option value="0"></option>
+                            <?php foreach ($data as $kecamatan) : ?>
+                            <option value="<?= $kecamatan['id'] ?>"><?= $kecamatan['id'] ?></option>
+                            <?php endforeach ?>
                             <option value="1">000</option>
                             <option value="2">111</option>
                             <option value="3">222</option>
@@ -41,7 +46,9 @@
                     <th> ID KELURAHAN </th>
                     <td> :
                         <select name="id_kelurahan" id="" required>
-                            <option value="0"></option>
+                            <?php foreach ($data as $kelurahan) : ?>
+                            <option value="<?= $kelurahan['id'] ?>"><?= $kelurahan['id'] ?></option>
+                            <?php endforeach ?>
                             <option value="1">123</option>
                             <option value="2">456</option>
                             <option value="3">789</option>
@@ -52,10 +59,9 @@
                     <th> ID RW </th>
                     <td> :
                         <select name="id_rw" id="" required>
-                            <option value="0"></option>
-                            <option value="1">112</option>
-                            <option value="2">113</option>
-                            <option value="3">114</option>
+                            <?php foreach ($data as $rw) : ?>
+                            <option value="<?= $rw['id'] ?>"><?= $rw['id'] ?></option>
+                            <?php endforeach ?>
                         </select>
                     </td>
                 </tr>
@@ -64,13 +70,9 @@
                     <td> :
                         <select name="id_rt" id="" required>
                             <?php foreach ($data as $rt) : ?>
-                            <option value="<?= $rt['id'] ?>">
-                                <?= $rt['id'] ?>
-                            </option>
+                            <option value="<?= $rt['id'] ?>"><?= $rt['id'] ?></option>
                             <?php endforeach ?>
-                            <!-- <option value="1">333</option>
-                            <option value="2">444</option>
-                            <option value="3">555</option> -->
+
                         </select>
                     </td>
                 </tr>

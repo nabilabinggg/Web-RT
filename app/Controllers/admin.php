@@ -26,6 +26,7 @@ class admin extends BaseController
     }
     public function tambah_data_rt()
     {
+
         return view('admin/t_data_rt');
     }
     public function tambah_data_rw()
@@ -131,6 +132,10 @@ class admin extends BaseController
     public function tambah_data_kk()
     {
         $data = ['data' => $this->adminmodels->getdata('rt', array())];
+        $data = ['data' => $this->adminmodels->getdata('rw', array())];
+        $data = ['data' => $this->adminmodels->getdata('kelurahan', array())];
+        $data = ['data' => $this->adminmodels->getdata('kecamatan', array())];
+        $data = ['data' => $this->adminmodels->getdata('data_warga', array())];
         return view('admin/t_data_kk', $data);
     }
 
