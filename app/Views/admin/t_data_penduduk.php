@@ -11,29 +11,28 @@
 </head>
 
 <body>
-    <form action="/admin/save_data" method="post">
+    <form action="/save_data" method="post">
         <table style="text-align: left; justify-content: center;">
             <tr>
                 <th> NO KK</th>
-                <td> : <input type="input" name="id_kk" ></td>
+                <td> : <input type="input" name="id_kk" required></td>
             </tr>
             <tr>
                 <th>
                     NAMA LENGKAP
                 </th>
-                <td> : <input type="text" name="nama_lengkap" ></td>
+                <td> : <input type="text" name="nama_lengkap" required></td>
             </tr>
             <tr>
                 <th>
                     NIK
                 </th>
-                <td> : <input type="input" name="NIK" ></td>
+                <td> : <input type="input" name="NIK" required></td>
             </tr>
             <tr>
                 <th> E-KTP </th>
                 <td> :
-                    <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48" name="scan_ktp"
-                        >
+                    <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48" name="scan_ktp">
                 </td>
             </tr>
             <tr>
@@ -41,7 +40,7 @@
                     JENIS KELAMIN
                 </th>
                 <td> :
-                    <select name="j_kelamin" id="" >
+                    <select name="j_kelamin" id="" required>
                         <option value="0">-</option>
                         <option value="1"> Perempuan </option>
                         <option value="2"> Laki-laki </option>
@@ -52,20 +51,20 @@
                 <th>
                     TEMPAT LAHIR
                 </th>
-                <td> : <input type="input" name="tempat_lahir" ></td>
+                <td> : <input type="input" name="tempat_lahir" required></td>
             </tr>
             <tr>
                 <th>
                     TANGGAL LAHIR
                 </th>
-                <td> : <input type="date" name="tgl_lahir" id="" ></td>
+                <td> : <input type="date" name="tgl_lahir" id="" required></td>
             </tr>
             <tr>
                 <th>
                     AGAMA
                 </th>
                 <td> :
-                    <select name="agama" id="" >
+                    <select name="agama" id="">
                         <option value="1">Islam</option>
                         <option value="2">Kristen</option>
                         <option value="3">Budha</option>
@@ -77,20 +76,20 @@
                 <th>
                     PENDIDIKAN
                 </th>
-                <td> : <input type="input" name="pendidikan" ></td>
+                <td> : <input type="input" name="pendidikan" required></td>
             </tr>
             <tr>
                 <th>
                     JENIS PEKERJAAN
                 </th>
-                <td> : <input type="input" name="jenis_pekerjaan" ></td>
+                <td> : <input type="input" name="jenis_pekerjaan" required></td>
             </tr>
             <tr>
                 <th>
                     STATUS PERNIKAHAN
                 </th>
                 <td> :
-                    <select name="status_pernikahan" id="" >
+                    <select name="status_pernikahan" id="" required>
                         <option value="0"></option>
                         <option value="1">Sudah Menikah</option>
                         <option value="2">Belum menikah</option>
@@ -103,7 +102,7 @@
                     STATUS HUBUNGAN KELUARGA
                 </th>
                 <td> :
-                    <select name="status_hubungan_keluarga" id="" >
+                    <select name="status_hubungan_keluarga" id="" required>
                         <option value="0"> </option>
                         <option value="1">AYAH</option>
                         <option value="2">IBU</option>
@@ -116,38 +115,38 @@
                 <th>
                     KEWARGANEGARAAN
                 </th>
-                <td> : <input type="text" name="kewarganegaraan" ></td>
+                <td> : <input type="text" name="kewarganegaraan" required></td>
             </tr>
             <tr>
                 <th>
                     NO PASPORT
                 </th>
-                <td> : <input type="input" name="no_passport" ></td>
+                <td> : <input type="input" name="no_passport" required></td>
             </tr>
             <tr>
                 <th>
                     KITAS KITAB
                 </th>
-                <td> : <input type="text" name="kitas_kitap" ></td>
+                <td> : <input type="text" name="kitas_kitap" required></td>
             </tr>
             <tr>
                 <th>
                     NAMA AYAH
                 </th>
-                <td> : <input type="input" name="ayah" ></td>
+                <td> : <input type="input" name="ayah" required></td>
             </tr>
             <tr>
                 <th>
                     NAMA IBU
                 </th>
-                <td> : <input type="input" name="ibu" ></td>
+                <td> : <input type="input" name="ibu" required></td>
             </tr>
             <tr>
                 <th>
                     STATUS WARGA
                 </th>
                 <td> :
-                    <select name="status_warga" id="" >
+                    <select name="status_warga" id="" required>
                         <option value="0"></option>
                         <option value="1">WARGA LAMA</option>
                         <option value="2">WARGA PINDAHAN</option>
@@ -157,7 +156,7 @@
             </tr>
             <tr>
                 <th>KETERANGAN</th>
-                <td> : <input type="text" name="keterangan" id="" ></td>
+                <td> : <input type="text" name="keterangan" id="" required></td>
             </tr>
         </table>
         <div>

@@ -47,7 +47,7 @@ class AdminModels extends Model
         $builder = $db->table($table);
         $builder->select('*');
         $builder->where($condition);
-        $result = $builder->get();
+        $result = $builder->get()->getResultArray();
         return $result;
     }
     public function update_data($table, $condition, $value)
