@@ -22,12 +22,15 @@ class admin extends BaseController
 
     public function tambah_data_penduduk()
     {
-        return view('admin/t_data_penduduk');
+        $data = ['data' => $this->adminmodels->getdata('kk', array())];
+        // $kk = $this->adminmodels->getdata('kk', array());
+        // $datas['kk'] = $kk;
+        return view('admin/t_data_penduduk', $data);
     }
     public function tambah_data_rt()
     {
-
-        return view('admin/t_data_rt');
+        $data = ['data' => $this->adminmodels->getdata('kk', array())];
+        return view('admin/t_data_rt', $data);
     }
     public function tambah_data_rw()
     {
@@ -79,8 +82,7 @@ class admin extends BaseController
     public function data_warga()
     {
         $this->adminmodels->data_wargamod('data_warga', $this->request->getVar());
-
-        return redirect()->to('/');
+        return redirect()->to('/admin',);
     }
     public function home()
     {
@@ -131,14 +133,18 @@ class admin extends BaseController
     }
     public function tambah_data_kk()
     {
-        $data = ['data' => $this->adminmodels->getdata('rt', array())];
-        $data = ['data' => $this->adminmodels->getdata('rw', array())];
-        $data = ['data' => $this->adminmodels->getdata('kelurahan', array())];
-        $data = ['data' => $this->adminmodels->getdata('kecamatan', array())];
-        $data = ['data' => $this->adminmodels->getdata('data_warga', array())];
-        return view('admin/t_data_kk', $data);
+        $rt = $this->adminmodels->getdata('rt', array());
+        $rw = $this->adminmodels->getdata('rw', array());
+        $kelurahan = $this->adminmodels->getdata('kelurahan', array());
+        $kecamatan = $this->adminmodels->getdata('kecamatan', array());
+        $provinsi = $this->adminmodels->getdata('provinsi', array());
+        $datas['kecamatan'] = $kecamatan;
+        $datas['provinsi'] = $provinsi;
+        $datas['kelurahan'] = $kelurahan;
+        $datas['rw'] = $rw;
+        $datas['rt'] = $rt;
+        return view('admin/t_data_kk', $datas);
     }
-
     public function update_kk()
     {
         $this->adminmodels->where('id', $this->request->getVar('id'))->set($this->request->getVar())->update();
