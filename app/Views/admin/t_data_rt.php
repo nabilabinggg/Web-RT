@@ -14,8 +14,16 @@
     <form action="/rt" method="post">
         <table style="text-align: left; justify-content: center;">
             <tr>
+                <!-- <th> ID </th>
+                <td> : <select name="nama" id="">
+                        <option value="<?php foreach ($data as $rt) : ?>
+                            <option value=" <?= $rt['id'] ?>><?= $rt['id'] ?></option>
+                        <?php endforeach ?>"></option>
+                    </select> -->
                 <th> NAMA </th>
-                <td> : <input type="text" name="nama" required></td>
+                <td> :
+                    <input type="text" name="nama" required>
+                </td>
             </tr>
             <button type="submit" style="text-align:justify">Tambah</button>
         </table>

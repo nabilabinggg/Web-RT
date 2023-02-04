@@ -7,48 +7,48 @@ use CodeIgniter\Database\Migration;
 class DataWarga extends Migration
 {
     public function up()
-	{
-		$this->forge->addField([
-			'id'          => [
-				'type'           => 'INT',
-				'constraint'     => 128,
-				'unsigned'       => true,
-				'auto_increment' => true
-			],
-			'id_kk'       => [
-				'type'           => 'INT',
-				'constraint'     => 5
+    {
+        $this->forge->addField([
+            'id'          => [
+                'type'           => 'INT',
+                'constraint'     => 128,
+                'unsigned'       => true,
+                'auto_increment' => true
             ],
-			'nama_lengkap'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '128'
-            ],
-			'NIK'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '8'
-            ],
-			'scan_ktp'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '128'
-            ],
-			'j_kelamin'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '1'
-            ],
-			'tempat_lahir'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '80'
-            ],
-			'tgl_lahir'       => [
-				'type'           => 'datetime',
-            ],
-			'agama'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '10'
-            ],
-			'pendidikan'       => [
+            'id_kk'       => [
                 'type'           => 'VARCHAR',
-				'constraint'     => '128'
+                'constraint'     => 255
+            ],
+            'nama_lengkap'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => '128'
+            ],
+            'NIK'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => '30'
+            ],
+            'scan_ktp'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => '255'
+            ],
+            'j_kelamin'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => '20'
+            ],
+            'tempat_lahir'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => '80'
+            ],
+            'tgl_lahir'       => [
+                'type'           => 'datetime',
+            ],
+            'agama'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => '10'
+            ],
+            'pendidikan'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => '128'
             ],
             'jenis_pekerjaan'       => [
                 'type'           => 'VARCHAR',
@@ -90,26 +90,26 @@ class DataWarga extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => '128'
             ],
-            'created_at'=>[
-                'type'           =>'datetime'
+            'created_at' => [
+                'type'           => 'datetime'
             ],
-            'updated_at'=>[
-                'type'          =>'datetime'
+            'updated_at' => [
+                'type'          => 'datetime'
             ]
-		]);
+        ]);
 
-		// Membuat primary key
-		$this->forge->addKey('id', TRUE);
+        // Membuat primary key
+        $this->forge->addKey('id', TRUE);
 
-		// Membuat tabel news
-		$this->forge->createTable('data_warga', TRUE);
-	}
+        // Membuat tabel news
+        $this->forge->createTable('data_warga', TRUE);
+    }
 
-	//-------------------------------------------------------
+    //-------------------------------------------------------
 
-	public function down()
-	{
-		// menghapus tabel news
-		$this->forge->dropTable('data_warga');
-	}
+    public function down()
+    {
+        // menghapus tabel news
+        $this->forge->dropTable('data_warga');
+    }
 }

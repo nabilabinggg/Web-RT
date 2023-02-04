@@ -6,7 +6,7 @@ use CodeIgniter\Database\Migration;
 
 class Kk extends Migration
 {
-    public function up()
+	public function up()
 	{
 		$this->forge->addField([
 			'id'          => [
@@ -18,49 +18,49 @@ class Kk extends Migration
 			'nomor_kk'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255'
-            ],
+			],
 			'kepala_keluarga'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255'
-            ],
+			],
 			'alamat'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255'
-            ],
+			],
 			'id_kecamatan'       => [
-				'type'           => 'INT',
-				'constraint'     => 5
-            ],
+				'type'           => 'VARCHAR',
+				'constraint'     => 255
+			],
 			'id_kelurahan'       => [
-				'type'           => 'INT',
-				'constraint'     => 5
-            ],
+				'type'           => 'VARCHAR',
+				'constraint'     => 255
+			],
 			'id_rw'       => [
 				'type'           => 'INT',
-				'constraint'     => 5
-            ],
+				'constraint'     => 50
+			],
 			'id_rt'       => [
 				'type'           => 'INT',
-				'constraint'     => 5
-            ],
+				'constraint'     => 50
+			],
 			'kode_pos'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255'
-            ],
+			],
 			'provinsi'       => [
-                'type'           => 'INT',
-				'constraint'     => 5
-            ],
-            'foto_kk'       => [
-                'type'           => 'VARCHAR',
-                'constraint'     => '255'
-            ],
-            'created_at'=>[
-                'type'           =>'datetime'
-            ],
-            'updated_at'=>[
-                'type'          =>'datetime'
-            ]
+				'type'           => 'VARCHAR',
+				'constraint'     => 255
+			],
+			'foto_kk'       => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '255'
+			],
+			'created_at' => [
+				'type'           => 'datetime'
+			],
+			'updated_at' => [
+				'type'          => 'datetime'
+			]
 		]);
 
 		// Membuat primary key

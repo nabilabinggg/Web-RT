@@ -15,7 +15,11 @@
         <table style="text-align: left; justify-content: center;">
             <tr>
                 <th> NO KK</th>
-                <td> : <input type="input" name="id_kk" required></td>
+                <td> : <select name="id_kk" id="" required>
+                        <?php foreach ($data as $kk) : ?>
+                        <option value="<?= $kk['nomor_kk'] ?>"><?= $kk['nomor_kk'] ?></option>
+                        <?php endforeach ?>
+                    </select>
             </tr>
             <tr>
                 <th>
