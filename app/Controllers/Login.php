@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
-use App\Models\auth_Models;
+use App\Models\AuthModels;
 
 class Login extends BaseController
 {
-    protected $auth_model;
+    protected $authmodel;
 
     public function __construct()
     {
-        $this->auth_model = new auth_Models();
+        $this->authmodel = new AuthModels();
     }
 
     public function index()
@@ -27,7 +27,7 @@ class Login extends BaseController
     {
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
-        $user = $this->auth_model->where(['username' => $username])->first();
+        $user = $this->authmodel->where(['username' => $username])->first();
         if ($user) {
             if (password_verify($password, $user['password']) && $user['username']  == $username) {
                 $ses_user = [
@@ -35,8 +35,7 @@ class Login extends BaseController
                     'role' => $user['role_id'],
                     'logged_in' => TRUE
                 ];
-                
-                //HEAD
+                // Jika password Benar
                 session()->set($ses_user);
                 if ($ses_user['role'] == 1) {
                     return redirect()->to('/admin');
@@ -51,9 +50,6 @@ class Login extends BaseController
                 // Jika password Salah
                 session()->setFlashdata('MssgWo', "Password Salah");
                 return redirect()->to('/login');
-                // JIKA PASSWORD BENAR
-                // session()->set($ses_user);
-                // return redirect()->to('/admin');
             }
         } else {
             // Jika User tidak ada

@@ -38,51 +38,43 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/register', 'registrasi::regis');
-$routes->post('/register', 'registrasi::register');
 ///////////////////////////////////////////////
-// if ($role == 'rete') {
-$routes->get('/rete', 'rete::indexrt');
-$routes->get($role . '/tambah_data_warga', $role . '::tambah_data_warga');
 // }
 $routes->get('/', 'Home::index_');
+$routes->get('/register', 'Registrasi::regis');
+$routes->post('/register', 'Registrasi::register');
 $routes->get('/login', 'Login::index');
 $routes->post('/logon', 'Login::logon',);
-$routes->get('/logout', 'auth::logout',);
-
-$routes->get('/rewe', 'rewe::indexrw');
-$routes->get('/dkm', 'dkm::dkm');
-//AUTH 
-// if ($role == ('role')) {
-//     $routes->get('/logout', 'auth::logout',);
-// }
+$routes->get('/logout', 'Auth::logout',);
 
 //ADMIN
-// $routes->get('/admin', 'admin::index', ['filter' => 'checkauth']);
-// if ($role == 'admin') {
-$routes->get('/admin', 'admin::index');
-$routes->get($role . '/data_penduduk',  'admin::tambah_data_penduduk',);
-$routes->post('/save_data', 'admin::data_warga');
-$routes->post('/rt', 'admin::rt');
-$routes->get($role . '/tambah_data_rt', 'admin::tambah_data_rt',);
-$routes->post('/rw', 'admin::rw');
-$routes->get($role . '/tambah_data_rw', 'admin::tambah_data_rw',);
-$routes->post('/kecamatan', 'admin::kecamatan');
-$routes->get($role . '/tambah_data_kecamatan', 'admin::tambah_data_kecamatan',);
-$routes->post('/kelurahan', 'admin::kelurahan');
-$routes->get($role . '/tambah_data_kelurahan', 'admin::tambah_data_kelurahan',);
-$routes->post('/provinsi', 'admin::provinsi');
-$routes->get($role . '/tambah_data_provinsi', 'admin::tambah_data_provinsi',);
-$routes->post('/data_kk', 'admin::data_kk');
-$routes->get($role . '/tambah_data_kk', 'admin::tambah_data_kk',);
-$routes->get($role . '/buat_akun', 'admin::buat_akun',);
-$routes->post('/tambah_akun', 'admin::t_akun',);
-// }
+$routes->get('/admin', 'Admin::index');
+$routes->get($role . '/data_penduduk',  'Admin::tambah_data_penduduk',);
+$routes->post('/save_data', 'Admin::data_warga');
+$routes->post('/rt', 'Admin::rt');
+$routes->get($role . '/tambah_data_rt', 'Admin::tambah_data_rt',);
+$routes->post('/rw', 'Admin::rw');
+$routes->get($role . '/tambah_data_rw', 'Admin::tambah_data_rw',);
+$routes->post('/kecamatan', 'Admin::kecamatan');
+$routes->get($role . '/tambah_data_kecamatan', 'Admin::tambah_data_kecamatan',);
+$routes->post('/kelurahan', 'Admin::kelurahan');
+$routes->get($role . '/tambah_data_kelurahan', 'Admin::tambah_data_kelurahan',);
+$routes->post('/provinsi', 'Admin::provinsi');
+$routes->get($role . '/tambah_data_provinsi', 'Admin::tambah_data_provinsi',);
+$routes->post('/data_kk', 'Admin::data_kk');
+$routes->get($role . '/tambah_data_kk', 'Admin::tambah_data_kk',);
+$routes->get($role . '/buat_akun', 'Admin::buat_akun',);
+$routes->post('/tambah_akun', 'Admin::t_akun',);
 
-// RT
-'/rete/.........';
-// RW
-'/rewe/.........';
+//RT
+$routes->get('/rete', 'Rete::indexrt');
+$routes->get($role . '/tambah_data_warga', $role . '::tambah_data_warga');
+
+//RW
+$routes->get('/rewe', 'Rewe::indexrw');
+
+//DKM
+$routes->get('/dkm', 'Dkm::dkm');
 
 /*
  * --------------------------------------------------------------------

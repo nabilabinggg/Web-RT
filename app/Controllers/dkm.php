@@ -2,9 +2,7 @@
 
 namespace App\Controllers;
 
-// use App\Models\auth_Models;
-
-class dkm extends BaseController
+class Dkm extends BaseController
 {
     public function dkm()
     {

@@ -47,7 +47,7 @@ class Kk extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => '255'
 			],
-			'provinsi'       => [
+			'id_provinsi'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => 255
 			],

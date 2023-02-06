@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 // use App\Filters\CheckRewe;
 
-class rewe extends BaseController
+class Rewe extends BaseController
 {
 
     public function indexrw()

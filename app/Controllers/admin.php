@@ -3,17 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\AdminModels;
-use App\Models\auth_Models;
+use App\Models\AuthModels;
 
-class admin extends BaseController
+class Admin extends BaseController
 {
     protected $adminmodels;
-    protected $auth_model;
+    protected $authmodel;
 
     public function __construct()
     {
         $this->adminmodels = new AdminModels();
-        $this->auth_model = new auth_Models();
+        $this->authmodel = new AuthModels();
     }
     public function index()
     {
@@ -23,8 +23,6 @@ class admin extends BaseController
     public function tambah_data_penduduk()
     {
         $data = ['data' => $this->adminmodels->getdata('kk', array())];
-        // $kk = $this->adminmodels->getdata('kk', array());
-        // $datas['kk'] = $kk;
         return view('admin/t_data_penduduk', $data);
     }
     public function tambah_data_rt()
@@ -138,12 +136,14 @@ class admin extends BaseController
         $kelurahan = $this->adminmodels->getdata('kelurahan', array());
         $kecamatan = $this->adminmodels->getdata('kecamatan', array());
         $provinsi = $this->adminmodels->getdata('provinsi', array());
-        $datas['kecamatan'] = $kecamatan;
-        $datas['provinsi'] = $provinsi;
-        $datas['kelurahan'] = $kelurahan;
-        $datas['rw'] = $rw;
-        $datas['rt'] = $rt;
-        return view('admin/t_data_kk', $datas);
+        $data = [
+            'kecamatan' => $kecamatan,
+            'provinsi' => $provinsi,
+            'kelurahan' => $kelurahan,
+            'rw' => $rw,
+            'rt' => $rt
+        ];
+        return view('admin/t_data_kk', $data);
     }
     public function update_kk()
     {
@@ -167,9 +167,9 @@ class admin extends BaseController
             'role_id' => $this->request->getVar('role_id'),
             'status' => $this->request->getVar('status'),
         ];
-        $user = $this->auth_model->where('username', $data['username'])->findAll();
+        $user = $this->authmodel->where('username', $data['username'])->findAll();
         if (!$user) {
-            $this->auth_model->save($data, true);
+            $this->authmodel->save($data, true);
             return redirect()->to('/admin');
         }
         session()->setFlashdata('MssgWo', "Username telah terdaftar");

@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\auth_Models;
+use App\Models\AuthModels;
 
-class registrasi extends BaseController
+class Registrasi extends BaseController
 {
-    protected $auth_model;
+    protected $authmodel;
     public function __construct()
     {
-        $this->auth_model = new auth_Models();
+        $this->authmodel = new AuthModels();
     }
     public function regis()
     {
@@ -24,9 +24,9 @@ class registrasi extends BaseController
             'role_id' => 1,
             'status' => 1,
         ];
-        $user = $this->auth_model->where('username', $data['username'])->findAll();
+        $user = $this->authmodel->where('username', $data['username'])->findAll();
         if (!$user) {
-            $this->auth_model->save($data, true);
+            $this->authmodel->save($data, true);
             return redirect()->to('/login');
         }
         session()->setFlashdata('MssgWo', "Username telah terdaftar");
