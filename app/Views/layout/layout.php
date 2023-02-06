@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Css -->
     <link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet" />
@@ -22,7 +23,7 @@
                     <li><a href="#">Beranda</a></li>
                     <li><a href="#">Data Warga</a></li>
                     <li><a href="#">Tentang</a></li>
-                    <li><a href="<?= base_url('login') ?>">Login</a></li>
+                    <li><a href="<?= base_url('login') ?>" style="background: #5F6F94;">Login</a></li>
                 </ul>
             </nav>
             <div class="search-box">
@@ -49,6 +50,9 @@
 <!-- Jquery dan Bootsrap JS -->
 <script src="<?= base_url('js/jquery.min.js') ?>"></script>
 <script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 </body>
 

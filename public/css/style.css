@@ -263,6 +263,17 @@ img::-moz-selection {
     background-size: cover;
 }
 
+.banner::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
 .banner-text{
     position: relative;
     background-color: transparent;
@@ -275,9 +286,12 @@ img::-moz-selection {
     transform: translate(-10%,-50%);
     width: 30%;
     height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
 }
 
-.banner h1, p{
+.banner-text h1{
     background-color: transparent;
     font-family: sans-serif;
     font-size: 45px;
@@ -285,31 +299,35 @@ img::-moz-selection {
 }
 
 .banner-text p{
+    font-family: sans-serif;
     font-size: larger;
     font-weight: 600;
+    background-color: transparent;
 }
 
 button{
-    width: 250px;
-    height: 60px;
-    background-color: #84D9BB;
-    color: #000;
+    width: 45%;
+    height: 15%;
+    background-color: #5F6F94;
+    color: #fff;
     font-family: sans-serif;
-    font-size: 25px;
+    font-size: 15px;
     letter-spacing: 2px;
     border: none;
     border-radius: 10px;
 }
 
 button:hover {
-    color: #07BEB8;
+    color: #97E2DC;
 }
 
 /* DATA WARGA STYLING */
 .table{
     margin: auto;
     width: 95%;
-    border-spacing: 30px;
+    border-spacing: 5px 2rem;
+    /* border-radius: 1em;
+    overflow: hidden; */
 }
 
 .table th, td{
@@ -321,35 +339,44 @@ button:hover {
 }
 
 .table th{
-    background-color: #0088a9;
+    background-color: #fff;
+    border: solid;
+    border-radius: 10px;
 }
 
 .table td{
-    background-color: #84D9BB;
+    font-weight: bold;
+    background-color: #25316D;
+    color: #fff;
+    border-radius: 10px;
 }
 
-.button{
-    margin-left: 78.5%;
+.button {
+    margin-left: 84%;
+    position: relative;
 }
 
-.button .btn-left, .btn-right{
+.button a {
+    margin: 8px;
+    font-size: small;
     font-family: sans-serif;
-    font-size: 20px;
+    font-weight: 600;
 }
 
-.button .btn-left{
-    background: #A9A9A9;
-    border-radius: 4px;
-    color: #fff;
+.btn-left {
+    background: #5F6F94;
+    color: #000;
+    border-radius: 5px;
 }
 
-.button .btn-right{
-    background: #468770;
-    border-radius: 4px;
-    color: #fff;
+.btn-right {
+    background: #AFB7C9;
+    color: #000;
+    border-radius: 5px;
 }
 
-.about{
+/* TENTANG KAMI SECTION */
+/* .about{
     margin-top: 15px;
     background-color: #84D9BB;
 }
@@ -376,4 +403,136 @@ button:hover {
     font-family: 'Inika'; 
     background-color:transparent;
     font-size: 16px;
+} */
+
+/* BERITA SECTION */
+.topHeadlines{
+    padding: 50px 50px 50px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+}
+.topHeadlines .left{
+    padding: 10px 30px;
+}
+.topHeadlines .left > .title{
+    font-size: 20px;
+    font-family: sans-serif;
+    padding: 15px;
+    text-align: center;
+}
+.topHeadlines .left .img{
+    width: 100%;
+    height: 400px;
+}
+.topHeadlines .left .img img{
+    width: 100%;
+    height: 100%;
+}
+.topHeadlines .left .text{
+    padding-top: 15px;
+}
+.topHeadlines .left .text .title a{
+    text-decoration: none;
+    font-size: 16px;
+    padding-top: 15px;
+    color: #AFB7C9;
+}
+.text .title button {
+    width: 120px;
+    height: 20px;
+    background-color: #25316D;
+}
+.topHeadlines .left .text .title a h2:hover{
+    text-decoration: underline;
+}
+
+.topHeadlines .right{
+    padding: 10px 30px;
+}
+
+.topHeadlines .right > .title{
+    font-size: 20px;
+    padding: 15px;
+    text-align: center;
+}
+.topHeadlines .right .topNews{
+    padding: 7px;
+    height: 85%;
+    /* border: 1px solid #000; */
+    border-radius: 4px;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.topHeadlines .right .topNews img{
+    width: 150px;
+}
+
+
+
+/* .topHeadlines .right .topNews .news .text{
+    margin-inline: 10px;
+    display: flex;
+    align-items: center;
+}
+.topHeadlines .right .topNews .news .text .title a{
+    text-decoration: none;
+}
+.topHeadlines .right .topNews .news .text .title a p{
+    color: #fff;
+    display: inline;
+}
+.topHeadlines .right .topNews .news .text .title a p:hover{
+    text-decoration: underline;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TENTANG SECTION */
+/* .sliders {
+    background-color: #25316D;
+} */
+
+.owl-carousel .item img {
+    display: block;
+    width: 700px;
+    height: 300px;
+    border: 2px solid #fff;
+    object-fit: cover;
+}
+
+.owl-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.owl-dot{
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    outline: none !important;
+    border-radius: 50%;
+    border: 2px solid #25316D !important;
+}
+
+.owl-dot.active {
+    width: 35px;
+    border-radius: 14px;
+}
+
+.owl-dot.active,
+.owl-dot:hover {
+    background: #25316D !important;
 }
