@@ -17,16 +17,22 @@ class Admin extends BaseController
     }
     public function index()
     {
-        return view('admin/index');
+        $data_warga = $this->adminmodels->getdata('data_warga');
+        $data = ['data_warga' => $data_warga]; 
+        return view('admin/index', $data);
     }
-    // public function tambah_akun()
-    // {
-    //     return view('admin/t_akun');
-    // }
+
     public function tambah_data_penduduk()
     {
         $data = ['data' => $this->adminmodels->getdata('kk', array())];
         return view('admin/t_data_penduduk', $data);
+    }
+    public function update_data_dokumen()
+    {
+        $uri = new \CodeIgniter\HTTP\URI(current_url());
+        $id = $uri->getSegment(3);
+        $data = ['data' => $this->adminmodels->getdata('kk'),'warga' => $this->adminmodels->getdata('data_warga',['id'=>$id])];
+        return view('admin/update_dokumen', $data);
     }
     public function tambah_data_rt()
     {
@@ -49,10 +55,7 @@ class Admin extends BaseController
     {
         return view('admin/t_data_provinsi');
     }
-    public function tambah_data_kk()
-    {
-        return view('admin/t_data_kk');
-    }
+
     public function provinsi()
     {
         $this->adminmodels->data_wargamod('provinsi', $this->request->getVar());
@@ -78,11 +81,7 @@ class Admin extends BaseController
         $this->adminmodels->data_wargamod('rw', $this->request->getVar());
         return redirect()->to('/admin');
     }
-    public function data_kk()
-    {
-        $this->adminmodels->save($this->request->getVar());
-        return redirect()->to('/admin');
-    }
+
     public function maping()
     {
         $this->adminmodels->mapingmod('maping', $this->request->getVar());
@@ -90,6 +89,11 @@ class Admin extends BaseController
     public function data_warga()
     {
         $this->adminmodels->data_wargamod('data_warga', $this->request->getVar());
+        return redirect()->to('/admin',);
+    }
+    public function update_data_warga()
+    {
+        $this->adminmodels->data_wargamod('update_data_warga', $this->request->getVar());
         return redirect()->to('/admin',);
     }
     public function home()
@@ -124,10 +128,7 @@ class Admin extends BaseController
         ];
         $this->adminmodels->update_data($table, $condition, $this->request->getVar());
     }
-    public function update_kk()
-    {
-        $this->adminmodels->where('id', $this->request->getVar('id'))->set($this->request->getVar())->update();
-    }
+
     public function delete_data()
     {
         $table = $this->request->getVar('table');

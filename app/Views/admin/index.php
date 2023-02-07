@@ -8,6 +8,7 @@
 <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_kelurahan">Tambah Kelurahan</a></button>
 <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_provinsi">Tambah Provinsi</a></button>
 <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_kk">Tambah KK</a></button>
+<button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/data_penduduk">Update Data Warga</a></button>
 <h2>halamannya keseluruhan yaa</h2>
 <?php endif; ?>
 
@@ -49,28 +50,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td><button>DETAIL</button></td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td><button>DETAIL</button></td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td><button>DETAIL</button></td>
-                    </tr>
+                   <?php foreach($data_warga as $data) {
+                    echo ("<tr><td>".$data['id']."</td><td>".$data['nama_lengkap']."</td><td>".$data['id_kk']."</td><td>".$data['agama']."</td><td>".$data['keterangan']."</td><td><a href=/admin/data_penduduk/".$data['id'].">update</a></td></tr>");
+                   }?>
                 </tbody>
             </table>
         </div>
