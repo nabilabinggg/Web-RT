@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class auth_Models extends Model
+class AuthModels extends Model
 {
     protected $table      = 'user';
 
@@ -18,14 +18,6 @@ class auth_Models extends Model
         'status'
 
     ];
-    //akan mengambil data dari kolom username pada table user
-    // public function getData($parameter)
-    // {
-    //     $builder = $this->table($this->table);
-    //     $builder->where('username', $parameter);
-    //     $query = $builder->get();
-    //     return $query->getRowArray;
-    // }
 
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';

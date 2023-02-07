@@ -45,9 +45,9 @@
                 </th>
                 <td> :
                     <select name="j_kelamin" id="" required>
-                        <option value="0">-</option>
-                        <option value="1"> Perempuan </option>
-                        <option value="2"> Laki-laki </option>
+                        <option>-</option>
+                        <option> Perempuan </option>
+                        <option> Laki-laki </option>
                     </select>
                 </td>
             </tr>
@@ -69,10 +69,10 @@
                 </th>
                 <td> :
                     <select name="agama" id="">
-                        <option value="1">Islam</option>
-                        <option value="2">Kristen</option>
-                        <option value="3">Budha</option>
-                        <option value="4">Hindu</option>
+                        <option>Islam</option>
+                        <option>Kristen</option>
+                        <option>Budha</option>
+                        <option>Hindu</option>
                     </select>
                 </td>
             </tr>
@@ -94,10 +94,10 @@
                 </th>
                 <td> :
                     <select name="status_pernikahan" id="" required>
-                        <option value="0"></option>
-                        <option value="1">Sudah Menikah</option>
-                        <option value="2">Belum menikah</option>
-                        <option value="3">Bercerai</option>
+                        <option></option>
+                        <option>Sudah Menikah</option>
+                        <option>Belum menikah</option>
+                        <option>Bercerai</option>
                     </select>
                 </td>
             </tr>
@@ -107,11 +107,11 @@
                 </th>
                 <td> :
                     <select name="status_hubungan_keluarga" id="" required>
-                        <option value="0"> </option>
-                        <option value="1">AYAH</option>
-                        <option value="2">IBU</option>
-                        <option value="3">ANAK KANDUNG</option>
-                        <option value="4">ANAK ANGKAT</option>
+                        <option> </option>
+                        <option>AYAH</option>
+                        <option>IBU</option>
+                        <option>ANAK KANDUNG</option>
+                        <option>ANAK ANGKAT</option>
                     </select>
                 </td>
             </tr>
@@ -151,10 +151,10 @@
                 </th>
                 <td> :
                     <select name="status_warga" id="" required>
-                        <option value="0"></option>
-                        <option value="1">WARGA LAMA</option>
-                        <option value="2">WARGA PINDAHAN</option>
-                        <option value="3">WARGA TETAP</option>
+                        <option></option>
+                        <option>WARGA LAMA</option>
+                        <option>WARGA PINDAHAN</option>
+                        <option>WARGA TETAP</option>
                     </select>
                 </td>
             </tr>

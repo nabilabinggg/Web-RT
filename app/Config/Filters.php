@@ -17,13 +17,13 @@ class Filters extends BaseConfig
      */
 
     public array $aliases = [
-        'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
-        'honeypot'      => Honeypot::class,
-        'checkauth'     => \App\Filters\CheckAuth::class,
-        'checkrole'     => \App\Filters\CheckRole::class,
-        'checkrw'     => \App\Filters\CheckRw::class,
-        'checkdkm'     => \App\Filters\CheckDkm::class,
+        'csrf'              => CSRF::class,
+        'toolbar'           => DebugToolbar::class,
+        'honeypot'          => Honeypot::class,
+        'checksuperadmin'   => \App\Filters\CheckSuperadmin::class,
+        'checkrt'           => \App\Filters\CheckRt::class,
+        'checkrw'           => \App\Filters\CheckRw::class,
+        'checkdkm'          => \App\Filters\CheckDkm::class,
     ];
 
     /**
@@ -35,23 +35,30 @@ class Filters extends BaseConfig
     public array $globals = [
         'before' => [
             // sebelum login, bisa mengakses controller auth dengan function regis saja.
-            'checkauth' => [
+            'checksuperadmin' => [
                 'except' => [
-                    'login', 'login/*',
+                    '/', '/*',
                     'login', 'logon',
                     'register', 'register/*',
                 ]
             ],
-            'checkrole' => [
+            'checkrt' => [
                 'except' => [
-                    'login', 'login/*',
+                    '/', '/*',
                     'login', 'logon',
                     'register', 'register/*',
                 ]
             ],
-            'checkrole' => [
+            'checkrw' => [
                 'except' => [
-                    'login', 'login/*',
+                    '/', '/*',
+                    'login', 'logon',
+                    'register', 'register/*',
+                ]
+            ],
+            'checkdkm' => [
+                'except' => [
+                    '/', '/*',
                     'login', 'logon',
                     'register', 'register/*',
                 ]
@@ -61,7 +68,7 @@ class Filters extends BaseConfig
 
         'after' => [
             'toolbar',
-            'checkauth' => [
+            'checksuperadmin' => [
                 'except' => [
                     'admin', 'admin/*',
                     'rete', 'rete/*',
@@ -69,7 +76,7 @@ class Filters extends BaseConfig
                     'dkm', 'dkm/*',
                 ]
             ],
-            'checkrole' => [
+            'checkrt' => [
                 'except' => [
                     'rete', 'rete/*',
                 ]

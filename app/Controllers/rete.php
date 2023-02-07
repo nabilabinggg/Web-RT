@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class rete extends BaseController
+class Rete extends BaseController
 {
     public function indexrt()
     {

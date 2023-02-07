@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\auth_Models;
+use App\Models\AuthModels;
 
-class auth extends BaseController
+class Auth extends BaseController
 {
-    protected $auth_model;
+    protected $authmodel;
     public function __construct()
     {
-        $this->auth_model = new auth_Models();
+        $this->authmodel = new AuthModels();
     }
 
     public function logout()

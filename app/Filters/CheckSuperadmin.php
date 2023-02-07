@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class CheckAuth implements FilterInterface
+class CheckSuperadmin implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {    

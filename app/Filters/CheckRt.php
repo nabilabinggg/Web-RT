@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class CheckRole implements FilterInterface
+class CheckRt implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {    
