@@ -31,12 +31,12 @@
                 <th>
                     NIK
                 </th>
-                <td> : <input type="input" name="NIK" required></td>
+                <td> : <input type="input" name="NIK" value="<?=$warga[0]['NIK']?>" required></td>
             </tr>
             <tr>
                 <th> E-KTP </th>
                 <td> :
-                    <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48" name="scan_ktp">
+                    <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48" name="scan_ktp"> 
                 </td>
             </tr>
             <tr>
@@ -55,13 +55,13 @@
                 <th>
                     TEMPAT LAHIR
                 </th>
-                <td> : <input type="input" name="tempat_lahir" required></td>
+                <td> : <input type="input" name="tempat_lahir" value="<?=$warga[0]['tempat_lahir']?>" required></td>
             </tr>
             <tr>
                 <th>
                     TANGGAL LAHIR
                 </th>
-                <td> : <input type="date" name="tgl_lahir" id="" required></td>
+                <td> : <input type="date" name="tgl_lahir" id="" value="<?=$warga[0]['tgl_lahir']?>" required></td>
             </tr>
             <tr>
                 <th>
@@ -80,21 +80,21 @@
                 <th>
                     PENDIDIKAN
                 </th>
-                <td> : <input type="input" name="pendidikan" required></td>
+                <td> : <input type="input" name="pendidikan" value="<?=$warga[0]['pendidikan']?>" required></td>
             </tr>
             <tr>
                 <th>
                     JENIS PEKERJAAN
                 </th>
-                <td> : <input type="input" name="jenis_pekerjaan" required></td>
+                <td> : <input type="input" name="jenis_pekerjaan" value="<?=$warga[0]['jenis_pekerjaan']?>" required></td>
             </tr>
             <tr>
                 <th>
                     STATUS PERNIKAHAN
                 </th>
                 <td> :
-                    <select name="status_pernikahan" id="" required>
-                        <option></option>
+                    <select name="status_pernikahan" id="" value="<?=$warga[0]['status_pernikahan']?>" required>
+                        <option>-</option>
                         <option>Sudah Menikah</option>
                         <option>Belum menikah</option>
                         <option>Bercerai</option>
@@ -106,7 +106,7 @@
                     STATUS HUBUNGAN KELUARGA
                 </th>
                 <td> :
-                    <select name="status_hubungan_keluarga" id="" required>
+                    <select name="status_hubungan_keluarga" id="" value="<?=$warga[0]['status_hubungan_keluarga']?>" required>
                         <option> </option>
                         <option>AYAH</option>
                         <option>IBU</option>
@@ -119,38 +119,38 @@
                 <th>
                     KEWARGANEGARAAN
                 </th>
-                <td> : <input type="text" name="kewarganegaraan" required></td>
+                <td> : <input type="text" name="kewarganegaraan" value="<?=$warga[0]['kewarganegaraan']?>" required></td>
             </tr>
             <tr>
                 <th>
                     NO PASPORT
                 </th>
-                <td> : <input type="input" name="no_passport" required></td>
+                <td> : <input type="input" name="no_passport" value="<?=$warga[0]['no_passport']?>" required></td>
             </tr>
             <tr>
                 <th>
                     KITAS KITAB
                 </th>
-                <td> : <input type="text" name="kitas_kitap" required></td>
+                <td> : <input type="text" name="kitas_kitap" value="<?=$warga[0]['kitas_kitap']?>" required></td>
             </tr>
             <tr>
                 <th>
                     NAMA AYAH
                 </th>
-                <td> : <input type="input" name="ayah" required></td>
+                <td> : <input type="input" name="ayah" value="<?=$warga[0]['ayah']?>" required></td>
             </tr>
             <tr>
                 <th>
                     NAMA IBU
                 </th>
-                <td> : <input type="input" name="ibu" required></td>
+                <td> : <input type="input" name="ibu" value="<?=$warga[0]['ibu']?>" required></td>
             </tr>
             <tr>
                 <th>
                     STATUS WARGA
                 </th>
                 <td> :
-                    <select name="status_warga" id="" required>
+                    <select name="status_warga" id="" value="<?=$warga[0]['status_warga']?>" required>
                         <option></option>
                         <option>WARGA LAMA</option>
                         <option>WARGA PINDAHAN</option>
@@ -160,11 +160,11 @@
             </tr>
             <tr>
                 <th>KETERANGAN</th>
-                <td> : <input type="text" name="keterangan" id="" required></td>
+                <td> : <input type="text" name="keterangan" id="" value="<?=$warga[0]['keterangan']?>" required></td>
             </tr>
         </table>
         <div>
-            <button type="submit" style="text-align:justify">Save</button>
+            <button type="submit" style="text-align:justify">Update</button>
         </div>
     </form>
 </body>

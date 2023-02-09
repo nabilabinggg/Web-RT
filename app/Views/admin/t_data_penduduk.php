@@ -25,7 +25,7 @@
                 <th>
                     NAMA LENGKAP
                 </th>
-                <td> : <input type="text" name="nama_lengkap" value= " required></td>
+                <td> : <input type="text" name="nama_lengkap" required></td>
             </tr>
             <tr>
                 <th>
@@ -45,7 +45,7 @@
                 </th>
                 <td> :
                     <select name="j_kelamin" id="" required>
-                        <option>-</option>
+                        <option></option>
                         <option> Perempuan </option>
                         <option> Laki-laki </option>
                     </select>

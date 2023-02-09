@@ -45,7 +45,7 @@
                         <th scope="col">NO</th>
                         <th scope="col">NAMA LENGKAP</th>
                         <th scope="col">NO.KK</th>
-                        <th scope="col">ALAMAT</th>
+                        <th scope="col">AGAMA</th>
                         <th scope="col">KETERANGAN</th>
                     </tr>
                 </thead>
