@@ -1,4 +1,4 @@
-<h1>Tambah Data KK</h1>
+<h1>Edit Data KK</h1>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data</title>
+    <title>Edit Data</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
                 <tr>
                     <th> NOMOR KK </th>
                     <td> :
-                        <input type="text" name="nomor_kk" required>
+                        <input type="text" name="nomor_kk" value="<?= $warga[0]['nama_lengkap'] ?>" required>
                     </td>
                 </tr>
                 <tr>
@@ -85,11 +85,9 @@
 
                 </tr>
                 <tr>
-                    <td>Foto KK
-                        <div>
-                            <label for="formFileMultiple" class="form-label">Masukkan Foto KK</label>
-                            <input type="file" class="form-control" id="formFileMultiple" name="foto_kk" multiple>
-                        </div>
+                    <th> FOTO KK </th>
+                    <td> :
+                        <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48" name="scan_foto_kk" required>
                     </td>
                 </tr>
                 <button type="submit" style="text-align:justify">Tambah</button>

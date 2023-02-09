@@ -18,7 +18,11 @@ class Admin extends BaseController
     public function index()
     {
         $data_warga = $this->adminmodels->getdata('data_warga');
-        $data = ['data_warga' => $data_warga]; 
+        $kk = $this->adminmodels->getdata('kk');
+        $data = [
+            'data_warga' => $data_warga,
+            'kk' => $kk
+        ];
         return view('admin/index', $data);
     }
 
@@ -31,7 +35,7 @@ class Admin extends BaseController
     {
         $uri = new \CodeIgniter\HTTP\URI(current_url());
         $id = $uri->getSegment(3);
-        $data = ['data' => $this->adminmodels->getdata('kk'),'warga' => $this->adminmodels->getdata('data_warga',['id'=>$id])];
+        $data = ['data' => $this->adminmodels->getdata('kk'), 'warga' => $this->adminmodels->getdata('data_warga', ['id' => $id])];
         return view('admin/update_dokumen', $data);
     }
     public function tambah_data_rt()
@@ -162,6 +166,21 @@ class Admin extends BaseController
     public function update_kk()
     {
         $this->adminmodels->where('id', $this->request->getVar('id'))->set($this->request->getVar())->update();
+        $uri = new \CodeIgniter\HTTP\URI(current_url());
+        $id = $uri->getSegment(3);
+        $rt = $this->adminmodels->getdata('rt', array());
+        $rw = $this->adminmodels->getdata('rw', array());
+        $kelurahan = $this->adminmodels->getdata('kelurahan', array());
+        $kecamatan = $this->adminmodels->getdata('kecamatan', array());
+        $provinsi = $this->adminmodels->getdata('provinsi', array());
+        $data = [
+            'kecamatan' => $kecamatan,
+            'provinsi' => $provinsi,
+            'kelurahan' => $kelurahan,
+            'rw' => $rw,
+            'rt' => $rt
+        ];
+        return view('admin/update_kk', $data);
     }
     public function delete_kk()
     {
@@ -188,5 +207,11 @@ class Admin extends BaseController
         }
         session()->setFlashdata('MssgWo', "Username telah terdaftar");
         return redirect()->to('/admin');
+    }
+    public function detail()
+    {
+        $kk = $this->adminmodels->getdata('kk');
+        $data = ['kk' => $kk];
+        return view('admin/detail', $data);
     }
 }
