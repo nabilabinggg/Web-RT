@@ -153,45 +153,20 @@ class Admin extends BaseController
                     'is_unique' => '{field} kk sudah terdaftar'
                 ]
             ],
-            // 'foto' => [
-            //     'rules' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
-            //     'errors' => [
-            //         'uploaded' => 'Gambar harus di isi',
-            //         'max_size' => 'Ukuran Gambar terlalu besar (maks. 1MB)',
-            //         'is_image' => 'upload file bukan gambar',
-            //         'mime_in' => ' file harus jpg,jpeg, png',
-            //     ]
-            // ],
+            'foto' => [
+                'rules' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Gambar harus di isi',
+                    'max_size' => 'Ukuran Gambar terlalu besar (maks. 1MB)',
+                    'is_image' => 'upload file bukan gambar',
+                    'mime_in' => ' file harus jpg,jpeg, png',
+                ]
+            ],
         ])) {
-            // return redirect()->to('/admin/tambah_data_kk')->withInput();
-            return "halo";
-            dd($this->validate(
-                [
-                    'nomor_kk' => [
-                        'rules' => 'required|is_unique[kk.nomor_kk]',
-                        'errors' => [
-                            'required' => '{field} kolom harus di isi',
-                            'is_unique' => '{field} kk sudah terdaftar'
-                        ]
-                    ]
-                ]
-            ));
-            $this->adminmodels->save($this->request->getVar());
-            die;
+            return redirect()->to('/admin/tambah_data_kk')->withInput();
         }
-        dd($this->validate(
-            [
-                'nomor_kk' => [
-                    'rules' => 'required|is_unique[kk.nomor_kk]',
-                    'errors' => [
-                        'required' => '{field} kolom harus di isi',
-                        'is_unique' => '{field} kk sudah terdaftar'
-                    ]
-                ]
-            ]
-        ));
-
-        // return redirect()->to('/admin');
+        $this->adminmodels->save($this->request->getVar());
+        return redirect()->to('/admin');
     }
     public function update_data_kk()
     {

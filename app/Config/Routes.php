@@ -61,7 +61,7 @@ $routes->post('/kelurahan', 'Admin::kelurahan');
 $routes->get($role . '/tambah_data_kelurahan', 'Admin::tambah_data_kelurahan',);
 $routes->post('/provinsi', 'Admin::provinsi');
 $routes->get($role . '/tambah_data_provinsi', 'Admin::tambah_data_provinsi',);
-$routes->post('/data_kk', 'Admin::data_kk');
+$routes->post('/admin/data_kk', 'Admin::data_kk');
 $routes->get($role . '/tambah_data_kk', 'Admin::tambah_data_kk',);
 $routes->get($role . '/buat_akun', 'Admin::buat_akun',);
 $routes->post('/tambah_akun', 'Admin::t_akun',);

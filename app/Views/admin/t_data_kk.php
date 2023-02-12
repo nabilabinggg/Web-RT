@@ -11,73 +11,73 @@
 </head>
 
 <body>
-    <form action="/data_kk" method="post" enctype="multipart/form-data">
+    <form action="/admin/data_kk" method="post" enctype="multipart/form-data">
         <div>
             <table style="text-align: left; justify-content: center;">
                 <tr>
                     <th> NOMOR KK </th>
                     <td> :
-                        <input type="text" name="nomor_kk" required>
+                        <input type="text" name="nomor_kk" >
                     </td>
                 </tr>
                 <tr>
                     <th> KEPALA KELUARGA </th>
-                    <td> : <input type="text" name="kepala_keluarga" required></td>
+                    <td> : <input type="text" name="kepala_keluarga" ></td>
                 </tr>
                 <tr>
                     <th> ALAMAT</th>
-                    <td> : <input type="input" name="alamat" required></td>
+                    <td> : <input type="input" name="alamat" ></td>
                 </tr>
                 <tr>
                     <th> KECAMATAN </th>
                     <td> :
-                        <select name="id_kecamatan" id="" required>
+                        <select name="id_kecamatan" id="" >
                             <?php foreach ($kecamatan as $kecamatan) : ?>
                                 <option value="<?= $kecamatan['nama'] ?>"><?= $kecamatan['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
                     </td>
-                    <!-- <input type="text" name="id_kecamatan" required>
+                    <!-- <input type="text" name="id_kecamatan" >
                     </td> -->
                 </tr>
                 <tr>
                     <th> KELURAHAN </th>
-                    <td> : <select name="id_kelurahan" id="" required>
+                    <td> : <select name="id_kelurahan" id="" >
                             <?php foreach ($kelurahan as $kelurahan) : ?>
                                 <option value="<?= $kelurahan['nama'] ?>"><?= $kelurahan['nama'] ?></option>
                             <?php endforeach ?>
-                            <!-- <input type="text" name="id_kelurahan" required> -->
+                            <!-- <input type="text" name="id_kelurahan" > -->
                     </td>
                 </tr>
                 <tr>
                     <th> RW </th>
                     <td> :
-                        <select name="id_rw" id="" required>
+                        <select name="id_rw" id="" >
                             <?php foreach ($rw as $rw) : ?>
                                 <option value="<?= $rw['nama'] ?>"><?= $rw['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
-                        <!-- <input type="text" name="id_rw" required> -->
+                        <!-- <input type="text" name="id_rw" > -->
                     </td>
                 </tr>
                 <tr>
                     <th> RT </th>
                     <td> :
-                        <select name="id_rt" id="" required>
+                        <select name="id_rt" id="" >
                             <?php foreach ($rt as $rt) : ?>
                                 <option value="<?= $rt['nama'] ?>"><?= $rt['nama'] ?></option>
                             <?php endforeach ?>
-                            <!-- <input type="text" name="id_rt" required> -->
+                            <!-- <input type="text" name="id_rt" > -->
                     </td>
                 </tr>
                 <tr>
                     <th> KODE POS </th>
-                    <td> : <input type="number" name="kode_pos" required></td>
+                    <td> : <input type="number" name="kode_pos" ></td>
                 </tr>
                 <tr>
                     <th> PROVINSI </th>
                     <td> :
-                        <select name="id_provinsi" id="" required>
+                        <select name="id_provinsi" id="" >
                             <?php foreach ($provinsi as $provinsi) : ?>
                                 <option value="<?= $provinsi['nama'] ?>"><?= $provinsi['nama'] ?></option>
                             <?php endforeach ?>
