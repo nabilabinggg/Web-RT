@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form action="/data_kk" method="post">
+    <form action="/data_kk" method="post" enctype="multipart/form-data">
         <div>
             <table style="text-align: left; justify-content: center;">
                 <tr>

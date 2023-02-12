@@ -43,7 +43,7 @@
                     <td>" . $data['kode_pos'] . "</td>
                     <td>" . $data['id_provinsi'] . "</td>
                     <td>" . $data['foto_kk'] . "</td>
-                    <td><a href=/update_kk/" . $data['id'] . ">update</a></td>
+                    <td><a href=/admin/update_kk/" . $data['id'] . ">update</a></td>
                     </tr>");
                         } ?>
                     </tbody>

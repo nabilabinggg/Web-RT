@@ -41,7 +41,7 @@ class AdminModels extends Model
         $builder = $db->table($table);
         $builder->insert($data);
     }
-    public function getdata($table, $condition=[])
+    public function getdata($table, $condition = [])
     {
         $db      = \Config\Database::connect();
         $builder = $db->table($table);

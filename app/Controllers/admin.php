@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\AdminModels;
 use App\Models\AuthModels;
+use PhpParser\Node\Stmt\Echo_;
 
 class Admin extends BaseController
 {
@@ -144,7 +145,57 @@ class Admin extends BaseController
 
     public function data_kk()
     {
-        $this->adminmodels->save($this->request->getVar());
+        if (!$this->validate([
+            'nomor_kk' => [
+                'rules' => 'required|is_unique[kk.nomor_kk]',
+                'errors' => [
+                    'required' => '{field} kolom harus di isi',
+                    'is_unique' => '{field} kk sudah terdaftar'
+                ]
+            ],
+            // 'foto' => [
+            //     'rules' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
+            //     'errors' => [
+            //         'uploaded' => 'Gambar harus di isi',
+            //         'max_size' => 'Ukuran Gambar terlalu besar (maks. 1MB)',
+            //         'is_image' => 'upload file bukan gambar',
+            //         'mime_in' => ' file harus jpg,jpeg, png',
+            //     ]
+            // ],
+        ])) {
+            // return redirect()->to('/admin/tambah_data_kk')->withInput();
+            return "halo";
+            dd($this->validate(
+                [
+                    'nomor_kk' => [
+                        'rules' => 'required|is_unique[kk.nomor_kk]',
+                        'errors' => [
+                            'required' => '{field} kolom harus di isi',
+                            'is_unique' => '{field} kk sudah terdaftar'
+                        ]
+                    ]
+                ]
+            ));
+            $this->adminmodels->save($this->request->getVar());
+            die;
+        }
+        dd($this->validate(
+            [
+                'nomor_kk' => [
+                    'rules' => 'required|is_unique[kk.nomor_kk]',
+                    'errors' => [
+                        'required' => '{field} kolom harus di isi',
+                        'is_unique' => '{field} kk sudah terdaftar'
+                    ]
+                ]
+            ]
+        ));
+
+        // return redirect()->to('/admin');
+    }
+    public function update_data_kk()
+    {
+        $this->adminmodels->where('nomor_kk', $this->request->getVar('nomor_kk'))->set($this->request->getVar())->update();
         return redirect()->to('/admin');
     }
     public function tambah_data_kk()
@@ -165,46 +216,27 @@ class Admin extends BaseController
             'rt' => $rt,
             'foto' => $foto
         ];
-
-        //validation
-        if (!$this->validate([
-            'nomor_kk' => [
-                'rules' => 'required|is_unique[nomor_kk]',
-                'errors' => [
-                    'required' => '{field} kolom harus di isi',
-                    'is_unique' => '{field} kk sudah terdaftar'
-                ]
-            ],
-            'foto' => [
-                'rules' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'uploaded' => 'Gambar harus di isi',
-                    'max_size' => 'Ukuran Gambar terlalu besar (maks. 1MB)',
-                    'is_image' => 'upload file bukan gambar',
-                    'mime_in' => ' file harus jpg,jpeg, png',
-                ]
-            ],
-        ]))
-            return view('admin/t_data_kk', $data);
+        return view('admin/t_data_kk', $data);
     }
     public function update_kk()
     {
-        $this->adminmodels->where('id', $this->request->getVar('id'))->set($this->request->getVar())->update();
+        // $this->adminmodels->where('id', $this->request->getVar('id'))->set($this->request->getVar())->update();
         // $data = ['data' => $this->adminmodels->getdata('kk'), 'warga' => $this->adminmodels->getdata('data_warga', ['id' => $id])];
         $uri = new \CodeIgniter\HTTP\URI(current_url());
-        $id = $uri->getSegment(1);
+        $id = $uri->getSegment(3);
         $rt = $this->adminmodels->getdata('rt', array());
         $rw = $this->adminmodels->getdata('rw', array());
         $kelurahan = $this->adminmodels->getdata('kelurahan', array());
         $kecamatan = $this->adminmodels->getdata('kecamatan', array());
         $provinsi = $this->adminmodels->getdata('provinsi', array());
+        $kk = $this->adminmodels->getdata('kk', array('id' => $id));
         $data = [
             'kecamatan' => $kecamatan,
             'provinsi' => $provinsi,
             'kelurahan' => $kelurahan,
             'rw' => $rw,
             'rt' => $rt,
-            'id' => $id,
+            'kk' => $kk
 
         ]; {
             return view('admin/update_kk', $data);

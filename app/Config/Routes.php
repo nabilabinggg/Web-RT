@@ -62,7 +62,6 @@ $routes->get($role . '/tambah_data_kelurahan', 'Admin::tambah_data_kelurahan',);
 $routes->post('/provinsi', 'Admin::provinsi');
 $routes->get($role . '/tambah_data_provinsi', 'Admin::tambah_data_provinsi',);
 $routes->post('/data_kk', 'Admin::data_kk');
-
 $routes->get($role . '/tambah_data_kk', 'Admin::tambah_data_kk',);
 $routes->get($role . '/buat_akun', 'Admin::buat_akun',);
 $routes->post('/tambah_akun', 'Admin::t_akun',);
@@ -71,7 +70,7 @@ $routes->post('/save_data', 'Admin::data_warga');
 $routes->get($role . '/detail', 'Admin::detail');
 $routes->delete($role . '(:num)', 'admin::delete_kk/$1');
 $routes->get($role . '/update_kk/(:segment)',  'Admin::update_kk/$1',);
-$routes->post('/data_kk', 'Admin::data_kk');
+$routes->post('/update_data_kk', 'Admin::update_data_kk');
 
 //RT
 $routes->get('/rete', 'Rete::indexrt');

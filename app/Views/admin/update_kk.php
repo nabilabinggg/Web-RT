@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form action="/data_kk" method="post">
+    <form action="/update_data_kk" method="post">
         <div>
             <table style="text-align: left; justify-content: center;">
                 <tr>
@@ -34,7 +34,7 @@
                     <td> :
                         <select name="id_kecamatan" id="" required>
                             <?php foreach ($kecamatan as $kecamatan) : ?>
-                            <option value="<?= $kecamatan['nama'] ?>"><?= $kecamatan['nama'] ?></option>
+                                <option value="<?= $kecamatan['nama'] ?>"><?= $kecamatan['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
                     </td>
@@ -45,7 +45,7 @@
                     <th> KELURAHAN </th>
                     <td> : <select name="id_kelurahan" id="" required>
                             <?php foreach ($kelurahan as $kelurahan) : ?>
-                            <option value="<?= $kelurahan['nama'] ?>"><?= $kelurahan['nama'] ?></option>
+                                <option value="<?= $kelurahan['nama'] ?>"><?= $kelurahan['nama'] ?></option>
                             <?php endforeach ?>
                             <!-- <input type="text" name="id_kelurahan" required> -->
                     </td>
@@ -55,7 +55,7 @@
                     <td> :
                         <select name="id_rw" id="" required>
                             <?php foreach ($rw as $rw) : ?>
-                            <option value="<?= $rw['nama'] ?>"><?= $rw['nama'] ?></option>
+                                <option value="<?= $rw['nama'] ?>"><?= $rw['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
                         <!-- <input type="text" name="id_rw" required> -->
@@ -66,7 +66,7 @@
                     <td> :
                         <select name="id_rt" id="" required>
                             <?php foreach ($rt as $rt) : ?>
-                            <option value="<?= $rt['nama'] ?>"><?= $rt['nama'] ?></option>
+                                <option value="<?= $rt['nama'] ?>"><?= $rt['nama'] ?></option>
                             <?php endforeach ?>
                             <!-- <input type="text" name="id_rt" required> -->
                     </td>
@@ -80,7 +80,7 @@
                     <td> :
                         <select name="id_provinsi" id="" required>
                             <?php foreach ($provinsi as $provinsi) : ?>
-                            <option value="<?= $provinsi['nama'] ?>"><?= $provinsi['nama'] ?></option>
+                                <option value="<?= $provinsi['nama'] ?>"><?= $provinsi['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
 
@@ -88,8 +88,7 @@
                 <tr>
                     <th> FOTO KK </th>
                     <td> :
-                        <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48" name="scan_foto_kk"
-                            required>
+                        <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48" name="scan_foto_kk" required>
                     </td>
                 </tr>
                 <button type="submit" style="text-align:justify">Tambah</button>
