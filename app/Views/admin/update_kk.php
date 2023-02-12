@@ -17,23 +17,24 @@
                 <tr>
                     <th> NOMOR KK </th>
                     <td> :
-                        <input type="text" name="nomor_kk" value="<?= $warga[0]['nama_lengkap'] ?>" required>
+                        <input type="text" name="nomor_kk" value="<?= $kk[0]['nomor_kk'] ?>" required>
                     </td>
                 </tr>
                 <tr>
                     <th> KEPALA KELUARGA </th>
-                    <td> : <input type="text" name="kepala_keluarga" required></td>
+                    <td> : <input type="text" name="kepala_keluarga" value="<?= $kk[0]['kepala_keluarga'] ?>" required>
+                    </td>
                 </tr>
                 <tr>
                     <th> ALAMAT</th>
-                    <td> : <input type="input" name="alamat" required></td>
+                    <td> : <input type="input" name="alamat" value="<?= $kk[0]['alamat'] ?>" required></td>
                 </tr>
                 <tr>
                     <th> KECAMATAN </th>
                     <td> :
                         <select name="id_kecamatan" id="" required>
                             <?php foreach ($kecamatan as $kecamatan) : ?>
-                                <option value="<?= $kecamatan['nama'] ?>"><?= $kecamatan['nama'] ?></option>
+                            <option value="<?= $kecamatan['nama'] ?>"><?= $kecamatan['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
                     </td>
@@ -44,7 +45,7 @@
                     <th> KELURAHAN </th>
                     <td> : <select name="id_kelurahan" id="" required>
                             <?php foreach ($kelurahan as $kelurahan) : ?>
-                                <option value="<?= $kelurahan['nama'] ?>"><?= $kelurahan['nama'] ?></option>
+                            <option value="<?= $kelurahan['nama'] ?>"><?= $kelurahan['nama'] ?></option>
                             <?php endforeach ?>
                             <!-- <input type="text" name="id_kelurahan" required> -->
                     </td>
@@ -54,7 +55,7 @@
                     <td> :
                         <select name="id_rw" id="" required>
                             <?php foreach ($rw as $rw) : ?>
-                                <option value="<?= $rw['nama'] ?>"><?= $rw['nama'] ?></option>
+                            <option value="<?= $rw['nama'] ?>"><?= $rw['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
                         <!-- <input type="text" name="id_rw" required> -->
@@ -65,7 +66,7 @@
                     <td> :
                         <select name="id_rt" id="" required>
                             <?php foreach ($rt as $rt) : ?>
-                                <option value="<?= $rt['nama'] ?>"><?= $rt['nama'] ?></option>
+                            <option value="<?= $rt['nama'] ?>"><?= $rt['nama'] ?></option>
                             <?php endforeach ?>
                             <!-- <input type="text" name="id_rt" required> -->
                     </td>
@@ -79,7 +80,7 @@
                     <td> :
                         <select name="id_provinsi" id="" required>
                             <?php foreach ($provinsi as $provinsi) : ?>
-                                <option value="<?= $provinsi['nama'] ?>"><?= $provinsi['nama'] ?></option>
+                            <option value="<?= $provinsi['nama'] ?>"><?= $provinsi['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
 
@@ -87,7 +88,8 @@
                 <tr>
                     <th> FOTO KK </th>
                     <td> :
-                        <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48" name="scan_foto_kk" required>
+                        <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48" name="scan_foto_kk"
+                            required>
                     </td>
                 </tr>
                 <button type="submit" style="text-align:justify">Tambah</button>

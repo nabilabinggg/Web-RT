@@ -149,25 +149,50 @@ class Admin extends BaseController
     }
     public function tambah_data_kk()
     {
+        $validation = \Config\Services::validation();
         $rt = $this->adminmodels->getdata('rt', array());
         $rw = $this->adminmodels->getdata('rw', array());
         $kelurahan = $this->adminmodels->getdata('kelurahan', array());
         $kecamatan = $this->adminmodels->getdata('kecamatan', array());
         $provinsi = $this->adminmodels->getdata('provinsi', array());
+        $foto = $this->request->getFile('foto', array());
         $data = [
+            'validation' => $validation,
             'kecamatan' => $kecamatan,
             'provinsi' => $provinsi,
             'kelurahan' => $kelurahan,
             'rw' => $rw,
-            'rt' => $rt
+            'rt' => $rt,
+            'foto' => $foto
         ];
-        return view('admin/t_data_kk', $data);
+
+        //validation
+        if (!$this->validate([
+            'nomor_kk' => [
+                'rules' => 'required|is_unique[nomor_kk]',
+                'errors' => [
+                    'required' => '{field} kolom harus di isi',
+                    'is_unique' => '{field} kk sudah terdaftar'
+                ]
+            ],
+            'foto' => [
+                'rules' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Gambar harus di isi',
+                    'max_size' => 'Ukuran Gambar terlalu besar (maks. 1MB)',
+                    'is_image' => 'upload file bukan gambar',
+                    'mime_in' => ' file harus jpg,jpeg, png',
+                ]
+            ],
+        ]))
+            return view('admin/t_data_kk', $data);
     }
     public function update_kk()
     {
         $this->adminmodels->where('id', $this->request->getVar('id'))->set($this->request->getVar())->update();
+        // $data = ['data' => $this->adminmodels->getdata('kk'), 'warga' => $this->adminmodels->getdata('data_warga', ['id' => $id])];
         $uri = new \CodeIgniter\HTTP\URI(current_url());
-        $id = $uri->getSegment(3);
+        $id = $uri->getSegment(1);
         $rt = $this->adminmodels->getdata('rt', array());
         $rw = $this->adminmodels->getdata('rw', array());
         $kelurahan = $this->adminmodels->getdata('kelurahan', array());
@@ -178,13 +203,23 @@ class Admin extends BaseController
             'provinsi' => $provinsi,
             'kelurahan' => $kelurahan,
             'rw' => $rw,
-            'rt' => $rt
-        ];
-        return view('admin/update_kk', $data);
+            'rt' => $rt,
+            'id' => $id,
+
+        ]; {
+            return view('admin/update_kk', $data);
+        }
+
+        //ambil gambar
+        $foto = $this->request->getFile('foto');
+        $foto->move('img', $foto);
     }
-    public function delete_kk()
+    public function delete_kk($id)
     {
-        $this->adminmodels->where('id', $this->request->getVar('id'))->delete();
+        $this->adminmodels->delete($id);
+        session()->setFlashdata('pesan', 'kk berhasil dihapus');
+        return redirect()->to('/admin');
+        // $this->request->getVar($id)->delete();
     }
 
     public function buat_akun()
