@@ -73,7 +73,7 @@
                 </tr>
                 <tr>
                     <th> KODE POS </th>
-                    <td> : <input type="number" name="kode_pos" required></td>
+                    <td> : <input type="number" name="kode_pos" value="<?= $kk[0]['kode_pos'] ?>" required></td>
                 </tr>
                 <tr>
                     <th> PROVINSI </th>
@@ -91,6 +91,6 @@
                         <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48" name="scan_foto_kk" required>
                     </td>
                 </tr>
-                <button type="submit" style="text-align:justify">Tambah</button>
+                <button type="submit" style="text-align:justify">Update</button>
             </table>
         </div>

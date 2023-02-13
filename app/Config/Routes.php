@@ -66,7 +66,7 @@ $routes->get($role . '/tambah_data_kk', 'Admin::tambah_data_kk',);
 $routes->get($role . '/buat_akun', 'Admin::buat_akun',);
 $routes->post('/tambah_akun', 'Admin::t_akun',);
 $routes->get($role . '/data_penduduk/(:segment)',  'Admin::update_data_dokumen/$1',);
-$routes->post('/save_data', 'Admin::data_warga');
+$routes->post('/update_data_warga', 'Admin::update_data_warga');
 $routes->get($role . '/detail', 'Admin::detail');
 $routes->delete($role . '(:num)', 'admin::delete_kk/$1');
 $routes->get($role . '/update_kk/(:segment)',  'Admin::update_kk/$1',);

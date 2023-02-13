@@ -44,6 +44,7 @@
                     <td>" . $data['id_provinsi'] . "</td>
                     <td>" . $data['foto_kk'] . "</td>
                     <td><a href=/admin/update_kk/" . $data['id'] . ">update</a></td>
+                    <td><a href=/admin/delete_kk/" . $data['id'] . ">delete</a></td>
                     </tr>");
                         } ?>
                     </tbody>

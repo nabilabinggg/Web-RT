@@ -11,27 +11,27 @@
 </head>
 
 <body>
-    <form action="/admin/data_kk" method="post" enctype="multipart/form-data">
+    <form action="/admin/data_kk" method="post">
         <div>
             <table style="text-align: left; justify-content: center;">
                 <tr>
                     <th> NOMOR KK </th>
                     <td> :
-                        <input type="text" name="nomor_kk" >
+                        <input type="text" class="form-control <?= ($validation->hasError('nomor_kk')) ? 'is-invaid' : ''; ?>" id="nomor_kk" name="nomor_kk" autofocus>
                     </td>
                 </tr>
                 <tr>
                     <th> KEPALA KELUARGA </th>
-                    <td> : <input type="text" name="kepala_keluarga" ></td>
+                    <td> : <input type="text" name="kepala_keluarga"></td>
                 </tr>
                 <tr>
                     <th> ALAMAT</th>
-                    <td> : <input type="input" name="alamat" ></td>
+                    <td> : <input type="input" name="alamat"></td>
                 </tr>
                 <tr>
                     <th> KECAMATAN </th>
                     <td> :
-                        <select name="id_kecamatan" id="" >
+                        <select name="id_kecamatan" id="">
                             <?php foreach ($kecamatan as $kecamatan) : ?>
                                 <option value="<?= $kecamatan['nama'] ?>"><?= $kecamatan['nama'] ?></option>
                             <?php endforeach ?>
@@ -42,7 +42,7 @@
                 </tr>
                 <tr>
                     <th> KELURAHAN </th>
-                    <td> : <select name="id_kelurahan" id="" >
+                    <td> : <select name="id_kelurahan" id="">
                             <?php foreach ($kelurahan as $kelurahan) : ?>
                                 <option value="<?= $kelurahan['nama'] ?>"><?= $kelurahan['nama'] ?></option>
                             <?php endforeach ?>
@@ -52,7 +52,7 @@
                 <tr>
                     <th> RW </th>
                     <td> :
-                        <select name="id_rw" id="" >
+                        <select name="id_rw" id="">
                             <?php foreach ($rw as $rw) : ?>
                                 <option value="<?= $rw['nama'] ?>"><?= $rw['nama'] ?></option>
                             <?php endforeach ?>
@@ -63,7 +63,7 @@
                 <tr>
                     <th> RT </th>
                     <td> :
-                        <select name="id_rt" id="" >
+                        <select name="id_rt" id="">
                             <?php foreach ($rt as $rt) : ?>
                                 <option value="<?= $rt['nama'] ?>"><?= $rt['nama'] ?></option>
                             <?php endforeach ?>
@@ -72,12 +72,12 @@
                 </tr>
                 <tr>
                     <th> KODE POS </th>
-                    <td> : <input type="number" name="kode_pos" ></td>
+                    <td> : <input type="number" name="kode_pos"></td>
                 </tr>
                 <tr>
                     <th> PROVINSI </th>
                     <td> :
-                        <select name="id_provinsi" id="" >
+                        <select name="id_provinsi" id="">
                             <?php foreach ($provinsi as $provinsi) : ?>
                                 <option value="<?= $provinsi['nama'] ?>"><?= $provinsi['nama'] ?></option>
                             <?php endforeach ?>

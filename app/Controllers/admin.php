@@ -4,17 +4,20 @@ namespace App\Controllers;
 
 use App\Models\AdminModels;
 use App\Models\AuthModels;
+use App\Models\Wargamodels;
 use PhpParser\Node\Stmt\Echo_;
 
 class Admin extends BaseController
 {
     protected $adminmodels;
     protected $authmodel;
+    protected $wargamodel;
 
     public function __construct()
     {
         $this->adminmodels = new AdminModels();
         $this->authmodel = new AuthModels();
+        $this->wargamodel = new Wargamodels();
     }
     public function index()
     {
@@ -38,6 +41,12 @@ class Admin extends BaseController
         $id = $uri->getSegment(3);
         $data = ['data' => $this->adminmodels->getdata('kk'), 'warga' => $this->adminmodels->getdata('data_warga', ['id' => $id])];
         return view('admin/update_dokumen', $data);
+    }
+    public function update_data_warga()
+    {
+        // $this->adminmodels->where->update_data('data_warga'['id_kk'], $this->request->getVar());
+        $this->wargamodel->where('id_kk', $this->request->getVar('id_kk'))->set($this->request->getVar())->update();
+        return redirect()->to('/admin',);
     }
     public function tambah_data_rt()
     {
@@ -96,11 +105,7 @@ class Admin extends BaseController
         $this->adminmodels->data_wargamod('data_warga', $this->request->getVar());
         return redirect()->to('/admin',);
     }
-    public function update_data_warga()
-    {
-        $this->adminmodels->data_wargamod('update_data_warga', $this->request->getVar());
-        return redirect()->to('/admin',);
-    }
+
     public function home()
     {
 
@@ -148,48 +153,47 @@ class Admin extends BaseController
         if (!$this->validate([
             'nomor_kk' => [
                 'rules' => 'required|is_unique[kk.nomor_kk]',
-                'errors' => [
-                    'required' => '{field} kolom harus di isi',
-                    'is_unique' => '{field} kk sudah terdaftar'
-                ]
-            ],
-            'foto' => [
-                'rules' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'uploaded' => 'Gambar harus di isi',
-                    'max_size' => 'Ukuran Gambar terlalu besar (maks. 1MB)',
-                    'is_image' => 'upload file bukan gambar',
-                    'mime_in' => ' file harus jpg,jpeg, png',
-                ]
+                // 'errors' => [
+                //     'required' => '{field} kolom harus di isi',
+                //     'is_unique' => '{field} kk sudah terdaftar'
+                // ]
             ],
         ])) {
-            return redirect()->to('/admin/tambah_data_kk')->withInput();
+            $validation = \Config\Services::validation();
+            return redirect()->to('/admin/tambah_data_kk')->withInput()->with('validation', $validation);
         }
-        $this->adminmodels->save($this->request->getVar());
+        $this->adminmodels->save([
+            'nomor_kk' => $this->request->getVar('nomor_kk'),
+            'kepala_keluarga' => $this->request->getVar('kepala_keluarga'),
+            'alamat' => $this->request->getVar('alamat'),
+            'id_kecamatan' => $this->request->getVar('id_kecamatan'),
+            'id_kelurahan' => $this->request->getVar('id_kelurahan'),
+            'id_rw' => $this->request->getVar('id_rw'),
+            'id_rt' => $this->request->getVar('id_rt'),
+            'kode_pos' => $this->request->getVar('kode_pos'),
+            'id_provinsi' => $this->request->getVar('id_provinsi'),
+            'foto_kk' => $this->request->getFile('foto_kk')
+        ]);
         return redirect()->to('/admin');
     }
-    public function update_data_kk()
-    {
-        $this->adminmodels->where('nomor_kk', $this->request->getVar('nomor_kk'))->set($this->request->getVar())->update();
-        return redirect()->to('/admin');
-    }
+
     public function tambah_data_kk()
     {
-        $validation = \Config\Services::validation();
         $rt = $this->adminmodels->getdata('rt', array());
         $rw = $this->adminmodels->getdata('rw', array());
         $kelurahan = $this->adminmodels->getdata('kelurahan', array());
         $kecamatan = $this->adminmodels->getdata('kecamatan', array());
         $provinsi = $this->adminmodels->getdata('provinsi', array());
-        $foto = $this->request->getFile('foto', array());
+        $kk = $this->adminmodels->getdata('kk', array());
         $data = [
-            'validation' => $validation,
+            'validation' =>  \Config\Services::validation(),
             'kecamatan' => $kecamatan,
             'provinsi' => $provinsi,
             'kelurahan' => $kelurahan,
             'rw' => $rw,
             'rt' => $rt,
-            'foto' => $foto
+            'kk' => $kk,
+
         ];
         return view('admin/t_data_kk', $data);
     }
@@ -220,6 +224,11 @@ class Admin extends BaseController
         //ambil gambar
         $foto = $this->request->getFile('foto');
         $foto->move('img', $foto);
+    }
+    public function update_data_kk()
+    {
+        $this->adminmodels->where('nomor_kk', $this->request->getVar('nomor_kk'))->set($this->request->getVar())->update();
+        return redirect()->to('/admin');
     }
     public function delete_kk($id)
     {

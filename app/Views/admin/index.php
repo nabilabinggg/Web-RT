@@ -1,30 +1,30 @@
 <html>
 <?php if (session()->get('role') == 1) : ?>
-<button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/buat_akun">Tambah Akun</button></a>
-<button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/data_penduduk">Tambah Data Penduduk</a></button>
-<button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_rt">Tambah RT</a></button>
-<button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_rw">Tambah RW</a></button>
-<button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_kecamatan">Tambah Kecamatan</a></button>
-<button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_kelurahan">Tambah Kelurahan</a></button>
-<button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_provinsi">Tambah Provinsi</a></button>
-<button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_kk">Tambah KK</a></button>
-<button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/data_penduduk">Update Data Warga</a></button>
-<h2>halamannya keseluruhan yaa</h2>
+    <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/buat_akun">Tambah Akun</button></a>
+    <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/data_penduduk">Tambah Data Penduduk</a></button>
+    <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_rt">Tambah RT</a></button>
+    <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_rw">Tambah RW</a></button>
+    <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_kecamatan">Tambah Kecamatan</a></button>
+    <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_kelurahan">Tambah Kelurahan</a></button>
+    <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_provinsi">Tambah Provinsi</a></button>
+    <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/tambah_data_kk">Tambah KK</a></button>
+    <button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/data_penduduk">Update Data Warga</a></button>
+    <h2>halamannya keseluruhan yaa</h2>
 <?php endif; ?>
 
 <?php if (session()->get('role') == 2) : ?>
-<button><a href="t_d_penduduk">Tambah Data Penduduk</a></button>
-<h2>bagian rt aja</h2>
+    <button><a href="t_d_penduduk">Tambah Data Penduduk</a></button>
+    <h2>bagian rt aja</h2>
 <?php endif; ?>
 
 <?php if (session()->get('role') == 3) : ?>
-<button> Tambah data Rw dan Rt</button>
-<h2>Tampilin laman rt dan rw aja</h2>
+    <button> Tambah data Rw dan Rt</button>
+    <h2>Tampilin laman rt dan rw aja</h2>
 <?php endif; ?>
 
 <?php if (session()->get('role') == 4) : ?>
-<button>Data Majelis</button>
-<h2>Ini khusus halaman majelis aja</h2>
+    <button>Data Majelis</button>
+    <h2>Ini khusus halaman majelis aja</h2>
 <?php endif ?>
 
 
@@ -90,6 +90,7 @@
                     <td>" . $data['nomor_kk'] . "</td>
                     <td>" . $data['kepala_keluarga'] . "</td>
                     <td><a href=admin/update_kk/" . $data['id'] . ">update</a></td>
+                    <td><a href=admin/delete_kk/" . $data['id'] . ">delete</a></td>
                     </tr>");
                         } ?>
                         <td><button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/detail">detail
