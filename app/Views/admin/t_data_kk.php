@@ -11,13 +11,15 @@
 </head>
 
 <body>
-    <form action="/admin/data_kk" method="post">
+    <form action="/admin/data_kk" method="post" enctype="multipart/form-data">
         <div>
             <table style="text-align: left; justify-content: center;">
                 <tr>
                     <th> NOMOR KK </th>
                     <td> :
-                        <input type="text" class="form-control <?= ($validation->hasError('nomor_kk')) ? 'is-invaid' : ''; ?>" id="nomor_kk" name="nomor_kk" autofocus>
+                        <input type="text"
+                            class="form-control <?= ($validation->hasError('nomor_kk')) ? 'is-invaid' : ''; ?>"
+                            id="nomor_kk" name="nomor_kk" autofocus value="<?= old('nomor_kk'); ?>">
                     </td>
                 </tr>
                 <tr>
@@ -33,7 +35,7 @@
                     <td> :
                         <select name="id_kecamatan" id="">
                             <?php foreach ($kecamatan as $kecamatan) : ?>
-                                <option value="<?= $kecamatan['nama'] ?>"><?= $kecamatan['nama'] ?></option>
+                            <option value="<?= $kecamatan['nama'] ?>"><?= $kecamatan['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
                     </td>
@@ -44,7 +46,7 @@
                     <th> KELURAHAN </th>
                     <td> : <select name="id_kelurahan" id="">
                             <?php foreach ($kelurahan as $kelurahan) : ?>
-                                <option value="<?= $kelurahan['nama'] ?>"><?= $kelurahan['nama'] ?></option>
+                            <option value="<?= $kelurahan['nama'] ?>"><?= $kelurahan['nama'] ?></option>
                             <?php endforeach ?>
                             <!-- <input type="text" name="id_kelurahan" > -->
                     </td>
@@ -54,7 +56,7 @@
                     <td> :
                         <select name="id_rw" id="">
                             <?php foreach ($rw as $rw) : ?>
-                                <option value="<?= $rw['nama'] ?>"><?= $rw['nama'] ?></option>
+                            <option value="<?= $rw['nama'] ?>"><?= $rw['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
                         <!-- <input type="text" name="id_rw" > -->
@@ -65,7 +67,7 @@
                     <td> :
                         <select name="id_rt" id="">
                             <?php foreach ($rt as $rt) : ?>
-                                <option value="<?= $rt['nama'] ?>"><?= $rt['nama'] ?></option>
+                            <option value="<?= $rt['nama'] ?>"><?= $rt['nama'] ?></option>
                             <?php endforeach ?>
                             <!-- <input type="text" name="id_rt" > -->
                     </td>
@@ -79,7 +81,7 @@
                     <td> :
                         <select name="id_provinsi" id="">
                             <?php foreach ($provinsi as $provinsi) : ?>
-                                <option value="<?= $provinsi['nama'] ?>"><?= $provinsi['nama'] ?></option>
+                            <option value="<?= $provinsi['nama'] ?>"><?= $provinsi['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
 
@@ -87,8 +89,10 @@
                 <tr>
                     <td>Foto KK
                         <div>
-                            <label for="formFileMultiple" class="form-label">Masukkan Foto KK</label>
-                            <input type="file" class="form-control" id="formFileMultiple" name="foto_kk" multiple>
+                            <label for="foto_kk" class="form-label">Masukkan Foto KK</label>
+                            <input type="file" class="custum-file-input"
+                                <?= ($validation->hasError('foto_kk')) ? 'is-invaid' : ''; ?> id="foto_kk"
+                                name="foto_kk" multiple>
                         </div>
                     </td>
                 </tr>

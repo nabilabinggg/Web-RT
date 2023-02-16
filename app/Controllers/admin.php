@@ -153,15 +153,35 @@ class Admin extends BaseController
         if (!$this->validate([
             'nomor_kk' => [
                 'rules' => 'required|is_unique[kk.nomor_kk]',
-                // 'errors' => [
-                //     'required' => '{field} kolom harus di isi',
-                //     'is_unique' => '{field} kk sudah terdaftar'
-                // ]
+                'errors' => [
+                    'required' => '{field} kolom harus di isi',
+                    'is_unique' => '{field} nomor kk sudah terdaftar'
+                ]
             ],
+            'foto_kk' => [
+                'rules' => 'uploaded[foto_kk]|max_size[foto_kk,1024]|is_image[foto_kk]|mime_in[foto_kk,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploades' => 'pilih gambar terlebih dahulu',
+                    'max_size' => 'ukuran gambar terlalu besar',
+                    'is_image' => 'yang anda pilih bukan gambar',
+                    'mime_in' => 'yang anda pilih bukan gambar'
+                ]
+            ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('/admin/tambah_data_kk')->withInput()->with('validation', $validation);
+            // $validation = \Config\Services::validation();
+            // return redirect()->to('/admin/tambah_data_kk')->withInput()->with('validation', $validation);
+            return redirect()->to('/admin/tambah_data_kk')->withInput();
         }
+
+        //AMBIL GAMBAR
+        $fileFoto_kk = $this->request->getFile('foto_kk');
+
+        //pidahkan file ke publib-> img
+        $fileFoto_kk->move('img');
+
+        //ambil nama file
+        $namaFoto_kk = $fileFoto_kk->getName();
+
         $this->adminmodels->save([
             'nomor_kk' => $this->request->getVar('nomor_kk'),
             'kepala_keluarga' => $this->request->getVar('kepala_keluarga'),
@@ -172,7 +192,7 @@ class Admin extends BaseController
             'id_rt' => $this->request->getVar('id_rt'),
             'kode_pos' => $this->request->getVar('kode_pos'),
             'id_provinsi' => $this->request->getVar('id_provinsi'),
-            'foto_kk' => $this->request->getFile('foto_kk')
+            'foto_kk' => $namaFoto_kk
         ]);
         return redirect()->to('/admin');
     }
@@ -233,7 +253,7 @@ class Admin extends BaseController
     public function delete_kk($id)
     {
         $this->adminmodels->delete($id);
-        session()->setFlashdata('pesan', 'kk berhasil dihapus');
+        // session()->setFlashdata('pesan', 'kk berhasil dihapus');
         return redirect()->to('/admin');
         // $this->request->getVar($id)->delete();
     }

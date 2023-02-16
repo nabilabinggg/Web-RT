@@ -71,6 +71,7 @@ $routes->get($role . '/detail', 'Admin::detail');
 $routes->delete($role . '(:num)', 'admin::delete_kk/$1');
 $routes->get($role . '/update_kk/(:segment)',  'Admin::update_kk/$1',);
 $routes->post('/update_data_kk', 'Admin::update_data_kk');
+$routes->delete($role . '/delete/(:segment)',  'Admin::delete_kk/$1',);
 
 //RT
 $routes->get('/rete', 'Rete::indexrt');

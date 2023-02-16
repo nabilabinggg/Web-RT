@@ -90,8 +90,8 @@
                     <td>" . $data['nomor_kk'] . "</td>
                     <td>" . $data['kepala_keluarga'] . "</td>
                     <td><a href=admin/update_kk/" . $data['id'] . ">update</a></td>
-                    <td><a href=admin/delete_kk/" . $data['id'] . ">delete</a></td>
-                    </tr>");
+                    <td><a href=admin/delete/" . $data['id'] . ">delete</a></td>
+                        </tr>");
                         } ?>
                         <td><button> <a href="<?= session()->get('role') ? "admin" : ""; ?>/detail">detail
                                     kk</a></button>
